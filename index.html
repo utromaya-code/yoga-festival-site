@@ -3,35 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Летний Йога-Фестиваль 2026</title>
-    <meta name="description" content="Четыре дня практики йоги на берегу озера. 15-18 июля 2026">
+    <title>Летний Йога-Фестиваль 2026 | Погружение в практику</title>
+    <meta name="description" content="Четыре дня трансформации на берегу озера. Йога, медитация, природа. 15-18 июля 2026">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <style>
 /* ================================================
    ЛЕТНИЙ ЙОГА-ФЕСТИВАЛЬ 2026
-   Premium Creative Design v2.0
+   Premium Design v3.0 — Inspired by Bali Retreats
    ================================================ */
 
 :root {
-    /* Природная палитра с акцентами */
-    --moss: #4A5D4C;
-    --moss-light: #6B8A6E;
-    --terracotta: #C65D3B;
-    --sand: #E8DDD0;
-    --cream: #FAF7F2;
-    --night: #1A1D1A;
-    --gold: #C9A227;
+    /* Warm Earth Palette */
+    --sage: #8B9D83;
+    --sage-dark: #5C6B55;
+    --terracotta: #C67B5C;
+    --terracotta-light: #E8A98A;
+    --sand: #E6DDD1;
+    --cream: #FAF8F5;
+    --charcoal: #2C2C2C;
+    --warm-white: #FDFCFA;
+    --gold: #BFA265;
     
-    --font-sans: 'Space Grotesk', sans-serif;
-    --font-serif: 'Instrument Serif', serif;
+    --font-sans: 'Space Grotesk', -apple-system, sans-serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
     
-    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 html {
     font-size: 16px;
@@ -41,13 +47,9 @@ html {
 body {
     font-family: var(--font-sans);
     background: var(--cream);
-    color: var(--night);
+    color: var(--charcoal);
     overflow-x: hidden;
-    cursor: none;
-}
-
-@media (max-width: 768px) {
-    body { cursor: auto; }
+    line-height: 1.6;
 }
 
 ::selection {
@@ -56,36 +58,21 @@ body {
 }
 
 a { color: inherit; text-decoration: none; }
-button { font-family: inherit; cursor: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
 img { max-width: 100%; display: block; }
 
 /* ================================================
-   CUSTOM CURSOR
+   PROGRESS BAR
    ================================================ */
-.cursor {
+.progress-bar {
     position: fixed;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--night);
-    border-radius: 50%;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold));
     z-index: 9999;
-    transition: transform 0.15s var(--ease-out), 
-                width 0.3s var(--ease-out), 
-                height 0.3s var(--ease-out),
-                background 0.3s var(--ease-out);
-    transform: translate(-50%, -50%);
-    mix-blend-mode: difference;
-}
-
-.cursor.hover {
-    width: 60px;
-    height: 60px;
-    background: white;
-}
-
-@media (max-width: 768px) {
-    .cursor { display: none; }
+    transition: width 0.1s linear;
 }
 
 /* ================================================
@@ -94,24 +81,52 @@ img { max-width: 100%; display: block; }
 .preloader {
     position: fixed;
     inset: 0;
-    background: var(--moss);
+    background: var(--sage-dark);
     z-index: 10000;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.8s var(--ease-out), visibility 0.8s;
+    gap: 30px;
 }
 
 .preloader.hidden {
     opacity: 0;
     visibility: hidden;
+    transition: all 0.8s var(--ease-smooth);
 }
 
-.preloader__text {
+.preloader__logo {
     font-family: var(--font-serif);
-    font-size: clamp(24px, 5vw, 48px);
+    font-size: 32px;
+    font-weight: 500;
     color: white;
-    font-style: italic;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+
+.preloader__loader {
+    width: 120px;
+    height: 2px;
+    background: rgba(255,255,255,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.preloader__loader::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 40%;
+    background: white;
+    animation: loading 1s ease-in-out infinite;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(350%); }
 }
 
 /* ================================================
@@ -123,45 +138,65 @@ img { max-width: 100%; display: block; }
     left: 0;
     right: 0;
     z-index: 100;
-    padding: 20px 40px;
+    padding: 24px 48px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    mix-blend-mode: difference;
+    transition: all 0.4s var(--ease-smooth);
+}
+
+.nav.scrolled {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    padding: 16px 48px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+
+.nav.scrolled .nav__logo,
+.nav.scrolled .nav__link,
+.nav.scrolled .nav__cta {
+    color: var(--charcoal);
 }
 
 .nav__logo {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 500;
     color: white;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
 .nav__menu {
     display: flex;
-    gap: 40px;
+    gap: 48px;
     list-style: none;
 }
 
 .nav__link {
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     color: white;
     position: relative;
-    padding: 8px 0;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.nav__link:hover {
+    opacity: 1;
 }
 
 .nav__link::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     left: 0;
     width: 0;
     height: 1px;
-    background: white;
-    transition: width 0.4s var(--ease-out);
+    background: currentColor;
+    transition: width 0.4s var(--ease-smooth);
 }
 
 .nav__link:hover::after {
@@ -169,43 +204,59 @@ img { max-width: 100%; display: block; }
 }
 
 .nav__cta {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 1px;
-    color: var(--night);
-    background: white;
-    padding: 14px 28px;
-    border-radius: 100px;
-    transition: transform 0.3s var(--ease-out);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 14px 32px;
+    transition: all 0.4s var(--ease-smooth);
 }
 
 .nav__cta:hover {
-    transform: scale(1.05);
+    background: white;
+    color: var(--charcoal);
 }
 
-@media (max-width: 900px) {
-    .nav { padding: 16px 24px; }
+.nav.scrolled .nav__cta {
+    border-color: var(--charcoal);
+}
+
+.nav.scrolled .nav__cta:hover {
+    background: var(--charcoal);
+    color: white;
+}
+
+@media (max-width: 1000px) {
+    .nav { padding: 20px 24px; }
     .nav__menu { display: none; }
 }
 
 /* ================================================
-   HERO - Immersive Full Screen
+   HERO - Cinematic Video
    ================================================ */
 .hero {
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 700px;
     display: flex;
-    flex-direction: column;
+    align-items: flex-end;
     overflow: hidden;
 }
 
 .hero__media {
     position: absolute;
     inset: 0;
-    z-index: 1;
 }
 
-.hero__video,
+.hero__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .hero__image {
     width: 100%;
     height: 100%;
@@ -217,101 +268,147 @@ img { max-width: 100%; display: block; }
     inset: 0;
     background: linear-gradient(
         180deg,
-        rgba(26, 29, 26, 0.3) 0%,
-        rgba(26, 29, 26, 0.1) 40%,
-        rgba(26, 29, 26, 0.5) 100%
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 50%,
+        rgba(0,0,0,0.5) 100%
     );
 }
 
 .hero__content {
     position: relative;
     z-index: 10;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 60px 80px;
+    width: 100%;
+    padding: 0 80px 100px;
     color: white;
 }
 
-.hero__eyebrow {
+.hero__tag {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     font-size: 12px;
     font-weight: 500;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 1s var(--ease-out) 0.5s forwards;
+    animation: fadeUp 1s var(--ease-smooth) 0.3s forwards;
 }
 
-.hero__eyebrow::before {
+.hero__tag::before {
     content: '';
-    width: 40px;
+    width: 60px;
     height: 1px;
-    background: currentColor;
+    background: var(--gold);
 }
 
 .hero__title {
     font-family: var(--font-serif);
-    font-size: clamp(48px, 12vw, 160px);
+    font-size: clamp(48px, 10vw, 120px);
     font-weight: 400;
-    line-height: 0.9;
+    line-height: 1;
     margin-bottom: 40px;
+    max-width: 900px;
 }
 
-.hero__title .word {
-    display: inline-block;
-    overflow: hidden;
-}
-
-.hero__title .word span {
+.hero__title span {
     display: inline-block;
     opacity: 0;
     transform: translateY(100%);
-    animation: slideUp 1.2s var(--ease-out) forwards;
+    animation: slideUp 1.2s var(--ease-smooth) forwards;
 }
 
-.hero__title .word:nth-child(1) span { animation-delay: 0.3s; }
-.hero__title .word:nth-child(2) span { animation-delay: 0.4s; }
-.hero__title .word:nth-child(3) span { animation-delay: 0.5s; }
+.hero__title span:nth-child(1) { animation-delay: 0.4s; }
+.hero__title span:nth-child(2) { animation-delay: 0.5s; }
+.hero__title span:nth-child(3) { animation-delay: 0.6s; }
 
-.hero__title em {
-    font-style: italic;
+.hero__title .highlight {
     color: var(--gold);
+    font-style: italic;
 }
 
 .hero__bottom {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    margin-top: 40px;
     opacity: 0;
-    animation: fadeUp 1s var(--ease-out) 1s forwards;
+    animation: fadeUp 1s var(--ease-smooth) 0.8s forwards;
 }
 
-.hero__desc {
-    max-width: 400px;
-    font-size: 16px;
-    line-height: 1.7;
+.hero__quote {
+    max-width: 420px;
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.6;
     opacity: 0.9;
 }
 
+.hero__play {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    transition: gap 0.3s var(--ease-smooth);
+}
+
+.hero__play:hover {
+    gap: 24px;
+}
+
+.hero__play-btn {
+    width: 64px;
+    height: 64px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s var(--ease-smooth);
+}
+
+.hero__play:hover .hero__play-btn {
+    background: white;
+    border-color: white;
+}
+
+.hero__play-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+    margin-left: 3px;
+    transition: fill 0.4s;
+}
+
+.hero__play:hover .hero__play-btn svg {
+    fill: var(--charcoal);
+}
+
 .hero__scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    font-size: 11px;
-    letter-spacing: 2px;
+    font-size: 10px;
+    letter-spacing: 3px;
     text-transform: uppercase;
+    color: white;
+    opacity: 0.6;
 }
 
 .hero__scroll-line {
     width: 1px;
-    height: 60px;
+    height: 50px;
     background: rgba(255,255,255,0.3);
     position: relative;
     overflow: hidden;
@@ -320,12 +417,12 @@ img { max-width: 100%; display: block; }
 .hero__scroll-line::after {
     content: '';
     position: absolute;
-    top: 0;
+    top: -20px;
     left: 0;
     width: 100%;
     height: 20px;
     background: white;
-    animation: scrollDown 2s var(--ease-in-out) infinite;
+    animation: scrollDown 2s var(--ease-out) infinite;
 }
 
 @keyframes slideUp {
@@ -333,66 +430,169 @@ img { max-width: 100%; display: block; }
 }
 
 @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
+    to { opacity: 1; }
 }
 
 @keyframes scrollDown {
-    0% { transform: translateY(-20px); }
-    100% { transform: translateY(80px); }
+    0% { transform: translateY(0); }
+    100% { transform: translateY(70px); }
 }
 
 @media (max-width: 768px) {
-    .hero__content { padding: 0 24px 60px; }
-    .hero__bottom { flex-direction: column; align-items: flex-start; gap: 40px; }
+    .hero__content { padding: 0 24px 80px; }
+    .hero__bottom { flex-direction: column; align-items: flex-start; gap: 32px; }
+    .hero__play { margin-top: 20px; }
 }
 
 /* ================================================
-   COUNTDOWN TIMER
+   RATING BAR
    ================================================ */
-.countdown {
-    padding: 60px;
-    background: var(--moss);
-    color: white;
-}
-
-.countdown__inner {
+.rating-bar {
+    background: white;
+    padding: 24px 80px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.rating-bar__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.rating-bar__stars {
+    color: var(--gold);
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.rating-bar__text {
+    color: #666;
+}
+
+.rating-bar__text strong {
+    color: var(--charcoal);
+    font-weight: 600;
+}
+
+.rating-bar__divider {
+    width: 1px;
+    height: 30px;
+    background: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+    .rating-bar { padding: 20px 24px; gap: 20px; }
+    .rating-bar__divider { display: none; }
+}
+
+/* ================================================
+   PHILOSOPHY - Three Pillars (Aman style)
+   ================================================ */
+.philosophy {
+    padding: 160px 80px;
+    background: var(--cream);
+}
+
+.philosophy__header {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.philosophy__tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 24px;
+}
+
+.philosophy__title {
+    font-family: var(--font-serif);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.2;
+}
+
+.philosophy__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 60px;
 }
 
-.countdown__item {
+.pillar {
     text-align: center;
+    padding: 60px 40px;
+    background: white;
+    border-radius: 24px;
+    transition: transform 0.5s var(--ease-smooth), box-shadow 0.5s var(--ease-smooth);
 }
 
-.countdown__number {
+.pillar:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.06);
+}
+
+.pillar__icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 32px;
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pillar__icon svg {
+    width: 36px;
+    height: 36px;
+    stroke: white;
+    stroke-width: 1.5;
+    fill: none;
+}
+
+.pillar__title {
     font-family: var(--font-serif);
-    font-size: clamp(48px, 10vw, 100px);
-    font-weight: 400;
-    line-height: 1;
+    font-size: 28px;
+    font-weight: 500;
     margin-bottom: 8px;
 }
 
-.countdown__label {
+.pillar__subtitle {
     font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 3px;
+    font-weight: 600;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    opacity: 0.7;
+    color: var(--terracotta);
+    margin-bottom: 20px;
 }
 
-@media (max-width: 600px) {
-    .countdown { padding: 40px 24px; }
-    .countdown__inner { gap: 24px; }
+.pillar__text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #666;
+}
+
+@media (max-width: 1000px) {
+    .philosophy { padding: 80px 24px; }
+    .philosophy__grid { grid-template-columns: 1fr; gap: 30px; }
 }
 
 /* ================================================
-   ABOUT - Split Section with Parallax
+   ABOUT - Parallax Image
    ================================================ */
 .about {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
+    grid-template-columns: 1.2fr 1fr;
+    min-height: 90vh;
 }
 
 .about__image {
@@ -402,24 +602,23 @@ img { max-width: 100%; display: block; }
 
 .about__image img {
     width: 100%;
-    height: 100%;
+    height: 120%;
     object-fit: cover;
-    transition: transform 8s var(--ease-out);
-}
-
-.about__image:hover img {
-    transform: scale(1.1);
+    position: absolute;
+    top: -10%;
+    left: 0;
+    transition: transform 0.1s linear;
 }
 
 .about__content {
-    padding: 120px 80px;
+    padding: 120px 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background: var(--sand);
 }
 
-.about__label {
+.about__tag {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 4px;
@@ -430,7 +629,7 @@ img { max-width: 100%; display: block; }
 
 .about__title {
     font-family: var(--font-serif);
-    font-size: clamp(32px, 4vw, 56px);
+    font-size: clamp(32px, 4vw, 48px);
     font-weight: 400;
     line-height: 1.2;
     margin-bottom: 32px;
@@ -440,65 +639,77 @@ img { max-width: 100%; display: block; }
     font-size: 17px;
     line-height: 1.9;
     color: #555;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
-.about__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: 20px;
+.about__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat__number {
+    font-family: var(--font-serif);
+    font-size: 48px;
+    font-weight: 400;
     color: var(--terracotta);
-    transition: gap 0.3s var(--ease-out);
+    line-height: 1;
+    margin-bottom: 8px;
 }
 
-.about__link:hover {
-    gap: 20px;
+.stat__label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #888;
 }
 
-.about__link svg {
-    width: 20px;
-    height: 20px;
-}
-
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .about { grid-template-columns: 1fr; }
-    .about__image { height: 50vh; }
+    .about__image { height: 60vh; }
+    .about__image img { position: relative; height: 100%; top: 0; }
     .about__content { padding: 60px 24px; }
+    .about__stats { grid-template-columns: repeat(3, 1fr); gap: 20px; }
 }
 
 /* ================================================
-   MARQUEE - Infinite Scroll Text
+   MARQUEE
    ================================================ */
 .marquee {
-    padding: 24px 0;
-    background: var(--night);
+    padding: 20px 0;
+    background: var(--charcoal);
     overflow: hidden;
 }
 
 .marquee__track {
     display: flex;
-    animation: marquee 30s linear infinite;
+    animation: marquee 40s linear infinite;
 }
 
 .marquee__item {
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    gap: 60px;
-    padding: 0 60px;
+    gap: 40px;
+    padding: 0 40px;
     font-family: var(--font-serif);
-    font-size: 24px;
+    font-size: 20px;
     font-style: italic;
     color: white;
     white-space: nowrap;
 }
 
 .marquee__dot {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     background: var(--gold);
     border-radius: 50%;
 }
@@ -509,291 +720,268 @@ img { max-width: 100%; display: block; }
 }
 
 /* ================================================
-   EXPERIENCE - Features with Numbers
+   EXPERIENCE CARDS
    ================================================ */
 .experience {
-    padding: 160px 60px;
+    padding: 160px 80px;
     background: var(--cream);
 }
 
 .experience__header {
-    max-width: 800px;
-    margin-bottom: 100px;
-}
-
-.experience__label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 24px;
-}
-
-.experience__title {
-    font-family: var(--font-serif);
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 400;
-    line-height: 1.15;
-}
-
-.experience__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-}
-
-.exp-card {
-    padding: 50px 40px;
-    background: white;
-    border-radius: 24px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
-}
-
-.exp-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 30px 80px rgba(0,0,0,0.08);
-}
-
-.exp-card__number {
-    position: absolute;
-    top: -20px;
-    right: 20px;
-    font-family: var(--font-serif);
-    font-size: 140px;
-    font-weight: 400;
-    color: var(--sand);
-    line-height: 1;
-    z-index: 0;
-}
-
-.exp-card__content {
-    position: relative;
-    z-index: 1;
-}
-
-.exp-card__icon {
-    width: 56px;
-    height: 56px;
-    background: var(--moss);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-}
-
-.exp-card__icon svg {
-    width: 28px;
-    height: 28px;
-    stroke: white;
-    stroke-width: 1.5;
-    fill: none;
-}
-
-.exp-card__title {
-    font-family: var(--font-serif);
-    font-size: 26px;
-    font-weight: 400;
-    margin-bottom: 12px;
-}
-
-.exp-card__text {
-    font-size: 15px;
-    line-height: 1.7;
-    color: #666;
-}
-
-@media (max-width: 1000px) {
-    .experience { padding: 80px 24px; }
-    .experience__grid { grid-template-columns: 1fr; }
-}
-
-/* ================================================
-   GALLERY - Horizontal Scroll
-   ================================================ */
-.gallery {
-    padding: 120px 0;
-    background: var(--night);
-    overflow: hidden;
-}
-
-.gallery__header {
-    padding: 0 60px;
-    margin-bottom: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.gallery__title {
-    font-family: var(--font-serif);
-    font-size: clamp(36px, 5vw, 56px);
-    font-weight: 400;
-    color: white;
-}
-
-.gallery__nav {
-    display: flex;
-    gap: 12px;
-}
-
-.gallery__btn {
-    width: 56px;
-    height: 56px;
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 50%;
-    background: transparent;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s var(--ease-out);
-}
-
-.gallery__btn:hover {
-    background: white;
-    color: var(--night);
-}
-
-.gallery__btn svg {
-    width: 20px;
-    height: 20px;
-}
-
-.gallery__track {
-    display: flex;
-    gap: 24px;
-    padding: 0 60px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scroll-snap-type: x mandatory;
-}
-
-.gallery__track::-webkit-scrollbar { display: none; }
-
-.gallery__item {
-    flex: 0 0 auto;
-    width: 400px;
-    aspect-ratio: 3/4;
-    border-radius: 20px;
-    overflow: hidden;
-    scroll-snap-align: start;
-    position: relative;
-}
-
-.gallery__item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s var(--ease-out);
-}
-
-.gallery__item:hover img {
-    transform: scale(1.1);
-}
-
-.gallery__item-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    color: white;
-    opacity: 0;
-    transition: opacity 0.4s;
-}
-
-.gallery__item:hover .gallery__item-overlay {
-    opacity: 1;
-}
-
-.gallery__item-title {
-    font-family: var(--font-serif);
-    font-size: 22px;
-}
-
-@media (max-width: 768px) {
-    .gallery__header { padding: 0 24px; flex-direction: column; align-items: flex-start; gap: 24px; }
-    .gallery__track { padding: 0 24px; }
-    .gallery__item { width: 300px; }
-}
-
-/* ================================================
-   SCHEDULE - Accordion Style
-   ================================================ */
-.schedule {
-    padding: 160px 60px;
-    background: var(--cream);
-}
-
-.schedule__header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 80px;
 }
 
+.experience__title {
+    font-family: var(--font-serif);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400;
+    max-width: 500px;
+}
+
+.experience__tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 16px;
+}
+
+.experience__link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    transition: gap 0.3s var(--ease-smooth);
+}
+
+.experience__link:hover {
+    gap: 20px;
+}
+
+.experience__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.exp-card {
+    position: relative;
+    aspect-ratio: 3/4;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.exp-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-smooth);
+}
+
+.exp-card:hover .exp-card__image {
+    transform: scale(1.1);
+}
+
+.exp-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+}
+
+.exp-card__title {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.exp-card__desc {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+@media (max-width: 1200px) {
+    .experience { padding: 80px 24px; }
+    .experience__header { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .experience__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .experience__grid { grid-template-columns: 1fr; }
+}
+
+/* ================================================
+   VIDEO SECTION
+   ================================================ */
+.video-section {
+    position: relative;
+    height: 80vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.video-section__bg {
+    position: absolute;
+    inset: 0;
+}
+
+.video-section__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-section__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.video-section__content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+}
+
+.video-section__play {
+    width: 120px;
+    height: 120px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 40px;
+    cursor: pointer;
+    transition: all 0.4s var(--ease-smooth);
+}
+
+.video-section__play:hover {
+    background: white;
+    border-color: white;
+    transform: scale(1.1);
+}
+
+.video-section__play svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+    margin-left: 5px;
+    transition: fill 0.4s;
+}
+
+.video-section__play:hover svg {
+    fill: var(--charcoal);
+}
+
+.video-section__title {
+    font-family: var(--font-serif);
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 400;
+    font-style: italic;
+    max-width: 600px;
+    line-height: 1.4;
+}
+
+/* ================================================
+   SCHEDULE
+   ================================================ */
+.schedule {
+    padding: 160px 80px;
+    background: white;
+}
+
+.schedule__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+}
+
+.schedule__tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 16px;
+}
+
 .schedule__title {
     font-family: var(--font-serif);
-    font-size: clamp(36px, 5vw, 64px);
+    font-size: clamp(36px, 5vw, 56px);
     font-weight: 400;
 }
 
 .schedule__days {
     display: flex;
-    gap: 12px;
+    gap: 8px;
 }
 
 .schedule__day-btn {
-    padding: 12px 24px;
-    background: transparent;
-    border: 1px solid var(--night);
-    border-radius: 100px;
-    font-size: 14px;
+    padding: 14px 28px;
+    font-size: 13px;
     font-weight: 500;
-    transition: all 0.3s var(--ease-out);
+    letter-spacing: 1px;
+    border: 1px solid #ddd;
+    border-radius: 100px;
+    background: transparent;
+    transition: all 0.3s var(--ease-smooth);
 }
 
 .schedule__day-btn.active,
 .schedule__day-btn:hover {
-    background: var(--night);
+    background: var(--charcoal);
+    border-color: var(--charcoal);
     color: white;
 }
 
 .schedule__list {
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid #eee;
 }
 
 .schedule__item {
     display: grid;
-    grid-template-columns: 140px 1fr auto;
-    gap: 40px;
+    grid-template-columns: 120px 1fr 200px;
+    gap: 60px;
     padding: 40px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid #eee;
     align-items: center;
-    transition: all 0.3s var(--ease-out);
+    transition: all 0.3s var(--ease-smooth);
 }
 
 .schedule__item:hover {
-    padding-left: 20px;
-    background: rgba(0,0,0,0.02);
+    padding-left: 24px;
+    background: var(--cream);
 }
 
 .schedule__time {
     font-family: var(--font-serif);
-    font-size: 20px;
+    font-size: 24px;
     color: var(--terracotta);
 }
 
 .schedule__info h3 {
     font-family: var(--font-serif);
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 400;
     margin-bottom: 8px;
 }
@@ -806,33 +994,37 @@ img { max-width: 100%; display: block; }
 .schedule__teacher {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
 }
 
 .schedule__teacher-img {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     object-fit: cover;
 }
 
 .schedule__teacher-name {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
 }
 
-@media (max-width: 900px) {
+.schedule__teacher-role {
+    font-size: 13px;
+    color: #888;
+}
+
+@media (max-width: 1000px) {
     .schedule { padding: 80px 24px; }
     .schedule__header { flex-direction: column; align-items: flex-start; gap: 24px; }
-    .schedule__item { grid-template-columns: 1fr; gap: 16px; }
-    .schedule__teacher { margin-top: 16px; }
+    .schedule__item { grid-template-columns: 1fr; gap: 20px; }
 }
 
 /* ================================================
-   TEACHERS - Creative Grid
+   TEACHERS
    ================================================ */
 .teachers {
-    padding: 160px 60px;
+    padding: 160px 80px;
     background: var(--sand);
 }
 
@@ -841,25 +1033,25 @@ img { max-width: 100%; display: block; }
     margin-bottom: 80px;
 }
 
-.teachers__label {
+.teachers__tag {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--terracotta);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .teachers__title {
     font-family: var(--font-serif);
-    font-size: clamp(36px, 5vw, 64px);
+    font-size: clamp(36px, 5vw, 56px);
     font-weight: 400;
 }
 
 .teachers__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 40px;
 }
 
 .teacher {
@@ -868,9 +1060,9 @@ img { max-width: 100%; display: block; }
 
 .teacher__image {
     position: relative;
-    aspect-ratio: 3/4;
+    aspect-ratio: 4/5;
     margin-bottom: 24px;
-    border-radius: 200px 200px 30px 30px;
+    border-radius: 200px 200px 24px 24px;
     overflow: hidden;
 }
 
@@ -878,8 +1070,8 @@ img { max-width: 100%; display: block; }
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(20%);
-    transition: all 0.6s var(--ease-out);
+    filter: grayscale(30%);
+    transition: all 0.6s var(--ease-smooth);
 }
 
 .teacher:hover .teacher__image img {
@@ -890,18 +1082,19 @@ img { max-width: 100%; display: block; }
 .teacher__name {
     font-family: var(--font-serif);
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 4px;
 }
 
 .teacher__role {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--terracotta);
+    letter-spacing: 1px;
 }
 
 @media (max-width: 1000px) {
     .teachers { padding: 80px 24px; }
-    .teachers__grid { grid-template-columns: repeat(2, 1fr); }
+    .teachers__grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
 }
 
 @media (max-width: 600px) {
@@ -909,16 +1102,31 @@ img { max-width: 100%; display: block; }
 }
 
 /* ================================================
-   TESTIMONIALS - Slider
+   TESTIMONIALS CAROUSEL
    ================================================ */
 .testimonials {
-    padding: 160px 60px;
-    background: var(--moss);
+    padding: 160px 80px;
+    background: var(--sage-dark);
     color: white;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.testimonials__label {
+.testimonials__bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-serif);
+    font-size: 300px;
+    font-weight: 400;
+    opacity: 0.03;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.testimonials__tag {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 4px;
@@ -927,42 +1135,82 @@ img { max-width: 100%; display: block; }
     margin-bottom: 40px;
 }
 
-.testimonials__quote {
+.testimonials__carousel {
+    position: relative;
+}
+
+.testimonial {
+    display: none;
+}
+
+.testimonial.active {
+    display: block;
+    animation: fadeIn 0.6s var(--ease-smooth);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.testimonial__quote {
     font-family: var(--font-serif);
-    font-size: clamp(24px, 4vw, 48px);
+    font-size: clamp(24px, 4vw, 40px);
     font-weight: 400;
     font-style: italic;
-    line-height: 1.4;
+    line-height: 1.5;
     max-width: 900px;
     margin: 0 auto 40px;
 }
 
-.testimonials__author {
+.testimonial__author {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 16px;
 }
 
-.testimonials__author-img {
-    width: 60px;
-    height: 60px;
+.testimonial__author-img {
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.2);
 }
 
-.testimonials__author-info {
+.testimonial__author-info {
     text-align: left;
 }
 
-.testimonials__author-name {
+.testimonial__author-name {
     font-weight: 600;
-    margin-bottom: 4px;
+    font-size: 16px;
 }
 
-.testimonials__author-title {
+.testimonial__author-title {
     font-size: 14px;
     opacity: 0.7;
+}
+
+.testimonials__nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 50px;
+}
+
+.testimonials__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.testimonials__dot.active {
+    background: white;
+    transform: scale(1.2);
 }
 
 @media (max-width: 768px) {
@@ -970,11 +1218,11 @@ img { max-width: 100%; display: block; }
 }
 
 /* ================================================
-   PRICING - Bold Cards
+   PRICING
    ================================================ */
 .pricing {
-    padding: 160px 60px;
-    background: var(--cream);
+    padding: 160px 80px;
+    background: white;
 }
 
 .pricing__header {
@@ -982,9 +1230,18 @@ img { max-width: 100%; display: block; }
     margin-bottom: 80px;
 }
 
+.pricing__tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 16px;
+}
+
 .pricing__title {
     font-family: var(--font-serif);
-    font-size: clamp(36px, 5vw, 64px);
+    font-size: clamp(36px, 5vw, 56px);
     font-weight: 400;
 }
 
@@ -998,10 +1255,10 @@ img { max-width: 100%; display: block; }
 
 .price-card {
     padding: 50px 40px;
-    border-radius: 32px;
+    border-radius: 24px;
     text-align: center;
     position: relative;
-    transition: transform 0.4s var(--ease-out);
+    transition: transform 0.5s var(--ease-smooth);
 }
 
 .price-card:hover {
@@ -1009,16 +1266,17 @@ img { max-width: 100%; display: block; }
 }
 
 .price-card--basic {
-    background: white;
+    background: var(--cream);
+    border: 1px solid #e0e0e0;
 }
 
 .price-card--popular {
-    background: var(--night);
+    background: var(--charcoal);
     color: white;
 }
 
 .price-card--vip {
-    background: linear-gradient(135deg, var(--terracotta) 0%, #E07B5A 100%);
+    background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-light) 100%);
     color: white;
 }
 
@@ -1027,9 +1285,9 @@ img { max-width: 100%; display: block; }
     top: -14px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 8px 20px;
+    padding: 8px 24px;
     background: var(--gold);
-    color: var(--night);
+    color: var(--charcoal);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -1051,13 +1309,13 @@ img { max-width: 100%; display: block; }
 
 .price-card__price {
     font-family: var(--font-serif);
-    font-size: 64px;
+    font-size: 56px;
     font-weight: 400;
     margin-bottom: 30px;
 }
 
 .price-card__price span {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .price-card__features {
@@ -1078,7 +1336,7 @@ img { max-width: 100%; display: block; }
 .price-card__features li::before {
     content: '✓';
     font-weight: bold;
-    color: var(--moss);
+    color: var(--sage);
 }
 
 .price-card--popular .price-card__features li::before,
@@ -1090,16 +1348,16 @@ img { max-width: 100%; display: block; }
     display: block;
     width: 100%;
     padding: 18px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     letter-spacing: 1px;
-    border: none;
+    text-transform: uppercase;
     border-radius: 100px;
-    transition: all 0.3s var(--ease-out);
+    transition: all 0.4s var(--ease-smooth);
 }
 
 .price-card--basic .price-card__btn {
-    background: var(--night);
+    background: var(--charcoal);
     color: white;
 }
 
@@ -1109,7 +1367,7 @@ img { max-width: 100%; display: block; }
 
 .price-card--popular .price-card__btn {
     background: white;
-    color: var(--night);
+    color: var(--charcoal);
 }
 
 .price-card--popular .price-card__btn:hover {
@@ -1122,7 +1380,7 @@ img { max-width: 100%; display: block; }
 }
 
 .price-card--vip .price-card__btn:hover {
-    background: var(--night);
+    background: var(--charcoal);
     color: white;
 }
 
@@ -1132,11 +1390,11 @@ img { max-width: 100%; display: block; }
 }
 
 /* ================================================
-   FAQ - Accordion
+   FAQ
    ================================================ */
 .faq {
-    padding: 160px 60px;
-    background: var(--sand);
+    padding: 160px 80px;
+    background: var(--cream);
 }
 
 .faq__inner {
@@ -1147,6 +1405,15 @@ img { max-width: 100%; display: block; }
 .faq__header {
     text-align: center;
     margin-bottom: 60px;
+}
+
+.faq__tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 16px;
 }
 
 .faq__title {
@@ -1165,8 +1432,6 @@ img { max-width: 100%; display: block; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: transparent;
-    border: none;
     text-align: left;
     font-family: var(--font-serif);
     font-size: 22px;
@@ -1178,14 +1443,16 @@ img { max-width: 100%; display: block; }
 }
 
 .faq__icon {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border: 1px solid currentColor;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s var(--ease-out);
+    font-size: 20px;
+    transition: transform 0.3s var(--ease-smooth);
+    flex-shrink: 0;
 }
 
 .faq__item.active .faq__icon {
@@ -1195,11 +1462,11 @@ img { max-width: 100%; display: block; }
 .faq__answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s var(--ease-out);
+    transition: max-height 0.4s var(--ease-smooth);
 }
 
 .faq__item.active .faq__answer {
-    max-height: 200px;
+    max-height: 300px;
 }
 
 .faq__answer p {
@@ -1237,18 +1504,18 @@ img { max-width: 100%; display: block; }
 .location__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+    background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
 }
 
 .location__content {
     position: relative;
     z-index: 10;
-    padding: 80px;
+    padding: 100px;
     max-width: 600px;
     color: white;
 }
 
-.location__label {
+.location__tag {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 4px;
@@ -1274,29 +1541,30 @@ img { max-width: 100%; display: block; }
 .location__info {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
 }
 
 .location__item {
     display: flex;
     align-items: center;
-    gap: 16px;
-    font-size: 15px;
+    gap: 20px;
+    font-size: 16px;
 }
 
 .location__icon {
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
     background: rgba(255,255,255,0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .location__icon svg {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     stroke: var(--gold);
     stroke-width: 1.5;
     fill: none;
@@ -1304,82 +1572,86 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 768px) {
     .location__content { padding: 60px 24px; }
-    .location__overlay { background: rgba(0,0,0,0.75); }
+    .location__overlay { background: rgba(0,0,0,0.7); }
 }
 
 /* ================================================
-   CTA BANNER
+   CTA
    ================================================ */
-.cta-banner {
-    padding: 120px 60px;
+.cta {
+    padding: 140px 80px;
     background: var(--terracotta);
     text-align: center;
     color: white;
 }
 
-.cta-banner__title {
+.cta__title {
     font-family: var(--font-serif);
     font-size: clamp(36px, 6vw, 72px);
     font-weight: 400;
     margin-bottom: 24px;
 }
 
-.cta-banner__text {
+.cta__text {
     font-size: 18px;
     opacity: 0.9;
     margin-bottom: 40px;
 }
 
-.cta-banner__btn {
+.cta__btn {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     padding: 20px 48px;
     background: white;
     color: var(--terracotta);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px;
+    text-transform: uppercase;
     border-radius: 100px;
-    border: none;
-    transition: all 0.3s var(--ease-out);
+    transition: all 0.4s var(--ease-smooth);
 }
 
-.cta-banner__btn:hover {
-    background: var(--night);
+.cta__btn:hover {
+    background: var(--charcoal);
     color: white;
-    gap: 20px;
+    gap: 24px;
+}
+
+.cta__btn svg {
+    width: 20px;
+    height: 20px;
 }
 
 /* ================================================
    FOOTER
    ================================================ */
 .footer {
-    background: var(--night);
+    background: var(--charcoal);
     color: white;
-    padding: 80px 60px 40px;
+    padding: 100px 80px 50px;
 }
 
 .footer__top {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
     gap: 60px;
     margin-bottom: 80px;
 }
 
-.footer__brand {
-}
-
 .footer__logo {
     font-family: var(--font-serif);
-    font-size: 32px;
+    font-size: 28px;
+    font-weight: 500;
     margin-bottom: 16px;
 }
 
 .footer__tagline {
     font-size: 15px;
     opacity: 0.6;
-    margin-bottom: 24px;
+    margin-bottom: 30px;
+    max-width: 280px;
 }
 
 .footer__social {
@@ -1388,16 +1660,16 @@ img { max-width: 100%; display: block; }
 }
 
 .footer__social a {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
-    transition: all 0.3s var(--ease-out);
+    transition: all 0.3s var(--ease-smooth);
 }
 
 .footer__social a:hover {
@@ -1410,7 +1682,7 @@ img { max-width: 100%; display: block; }
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     opacity: 0.5;
 }
 
@@ -1441,8 +1713,8 @@ img { max-width: 100%; display: block; }
     opacity: 0.5;
 }
 
-@media (max-width: 900px) {
-    .footer { padding: 60px 24px 30px; }
+@media (max-width: 1000px) {
+    .footer { padding: 60px 24px 40px; }
     .footer__top { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
 
@@ -1452,12 +1724,48 @@ img { max-width: 100%; display: block; }
 }
 
 /* ================================================
-   SCROLL REVEAL ANIMATIONS
+   FLOATING CONTACT BUTTON
+   ================================================ */
+.float-contact {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    background: var(--charcoal);
+    color: white;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    transition: all 0.3s var(--ease-smooth);
+}
+
+.float-contact:hover {
+    background: var(--terracotta);
+    transform: translateY(-4px);
+}
+
+.float-contact svg {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .float-contact span { display: none; }
+    .float-contact { padding: 16px; border-radius: 50%; }
+}
+
+/* ================================================
+   REVEAL ANIMATIONS
    ================================================ */
 .reveal {
     opacity: 0;
-    transform: translateY(60px);
-    transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    transform: translateY(40px);
+    transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
 }
 
 .reveal.visible {
@@ -1468,28 +1776,27 @@ img { max-width: 100%; display: block; }
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
     </style>
 </head>
 <body>
 
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
 <!-- Preloader -->
-<div class="preloader">
-    <span class="preloader__text">Загружаем...</span>
+<div class="preloader" id="preloader">
+    <div class="preloader__logo">YogaFest</div>
+    <div class="preloader__loader"></div>
 </div>
 
-<!-- Custom Cursor -->
-<div class="cursor"></div>
-
 <!-- Navigation -->
-<nav class="nav">
+<nav class="nav" id="nav">
     <a href="#" class="nav__logo">YogaFest</a>
     <ul class="nav__menu">
-        <li><a href="#about" class="nav__link">О нас</a></li>
-        <li><a href="#schedule" class="nav__link">Расписание</a></li>
+        <li><a href="#philosophy" class="nav__link">Философия</a></li>
+        <li><a href="#experience" class="nav__link">Программа</a></li>
         <li><a href="#teachers" class="nav__link">Учителя</a></li>
         <li><a href="#pricing" class="nav__link">Билеты</a></li>
-        <li><a href="#faq" class="nav__link">FAQ</a></li>
     </ul>
     <a href="#pricing" class="nav__cta">Забронировать</a>
 </nav>
@@ -1497,44 +1804,78 @@ img { max-width: 100%; display: block; }
 <!-- Hero -->
 <section class="hero">
     <div class="hero__media">
-        <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=1920&q=80" alt="" class="hero__image">
+        <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=1920&q=85" alt="" class="hero__image">
         <div class="hero__overlay"></div>
     </div>
     <div class="hero__content">
-        <div class="hero__eyebrow">15 — 18 июля 2026</div>
+        <div class="hero__tag">15 — 18 июля 2026 · Подмосковье</div>
         <h1 class="hero__title">
-            <span class="word"><span>Летний</span></span>
-            <span class="word"><span><em>Йога</em></span></span>
-            <span class="word"><span>Фестиваль</span></span>
+            <span>Летний </span>
+            <span class="highlight">Йога </span>
+            <span>Фестиваль</span>
         </h1>
         <div class="hero__bottom">
-            <p class="hero__desc">Четыре дня погружения в практику на берегу озера. Йога, медитация, природа и единомышленники.</p>
-            <div class="hero__scroll">
-                <div class="hero__scroll-line"></div>
-                <span>Scroll</span>
+            <p class="hero__quote">«Некоторые места ты посещаешь. Другие — чувствуешь, воссоединяясь с собой и миром вокруг»</p>
+            <div class="hero__play" onclick="playVideo()">
+                <div class="hero__play-btn">
+                    <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                <span>Смотреть видео</span>
             </div>
         </div>
     </div>
+    <div class="hero__scroll">
+        <div class="hero__scroll-line"></div>
+        <span>Scroll</span>
+    </div>
 </section>
 
-<!-- Countdown -->
-<section class="countdown">
-    <div class="countdown__inner">
-        <div class="countdown__item">
-            <div class="countdown__number" id="days">168</div>
-            <div class="countdown__label">Дней</div>
+<!-- Rating Bar -->
+<div class="rating-bar">
+    <div class="rating-bar__item">
+        <span class="rating-bar__stars">★★★★★</span>
+        <span class="rating-bar__text"><strong>500+</strong> отзывов</span>
+    </div>
+    <div class="rating-bar__divider"></div>
+    <div class="rating-bar__item">
+        <span class="rating-bar__text"><strong>#1</strong> Йога-ретрит в России</span>
+    </div>
+    <div class="rating-bar__divider"></div>
+    <div class="rating-bar__item">
+        <span class="rating-bar__text"><strong>5 000+</strong> участников за 10 лет</span>
+    </div>
+</div>
+
+<!-- Philosophy / Three Pillars -->
+<section class="philosophy" id="philosophy">
+    <div class="philosophy__header">
+        <div class="philosophy__tag reveal">Наша философия</div>
+        <h2 class="philosophy__title reveal">Гармония тела, разума и духа — основа нашего подхода</h2>
+    </div>
+    <div class="philosophy__grid">
+        <div class="pillar reveal">
+            <div class="pillar__icon">
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3 class="pillar__title">Тело</h3>
+            <div class="pillar__subtitle">Physical</div>
+            <p class="pillar__text">Асаны и движение раскрывают потенциал тела, возвращая гибкость, силу и энергию</p>
         </div>
-        <div class="countdown__item">
-            <div class="countdown__number" id="hours">12</div>
-            <div class="countdown__label">Часов</div>
+        <div class="pillar reveal reveal-delay-1">
+            <div class="pillar__icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            </div>
+            <h3 class="pillar__title">Разум</h3>
+            <div class="pillar__subtitle">Mental</div>
+            <p class="pillar__text">Медитация и осознанность помогают обрести ясность и внутренний покой</p>
         </div>
-        <div class="countdown__item">
-            <div class="countdown__number" id="minutes">45</div>
-            <div class="countdown__label">Минут</div>
-        </div>
-        <div class="countdown__item">
-            <div class="countdown__number" id="seconds">30</div>
-            <div class="countdown__label">Секунд</div>
+        <div class="pillar reveal reveal-delay-2">
+            <div class="pillar__icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3 class="pillar__title">Дух</h3>
+            <div class="pillar__subtitle">Spiritual</div>
+            <p class="pillar__text">Связь с природой и единомышленниками наполняет смыслом и вдохновением</p>
         </div>
     </div>
 </section>
@@ -1542,17 +1883,27 @@ img { max-width: 100%; display: block; }
 <!-- About -->
 <section class="about" id="about">
     <div class="about__image">
-        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1000&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&q=85" alt="" id="aboutImage">
     </div>
     <div class="about__content">
-        <div class="about__label reveal">О фестивале</div>
+        <div class="about__tag reveal">О фестивале</div>
         <h2 class="about__title reveal">Место, где время останавливается</h2>
         <p class="about__text reveal">Летний Йога-Фестиваль — это четыре дня вне городской суеты. Здесь нет уведомлений, только шум леса, пение птиц и звук твоего дыхания.</p>
-        <p class="about__text reveal">Мы создали пространство, где можно замедлиться, почувствовать тело и услышать себя.</p>
-        <a href="#experience" class="about__link reveal">
-            Узнать больше
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+        <p class="about__text reveal">Мы создали пространство для глубокого погружения в практику, где каждый найдёт свой путь к гармонии.</p>
+        <div class="about__stats reveal">
+            <div class="stat">
+                <div class="stat__number" data-target="10">0</div>
+                <div class="stat__label">Лет опыта</div>
+            </div>
+            <div class="stat">
+                <div class="stat__number" data-target="50">0</div>
+                <div class="stat__label">Учителей</div>
+            </div>
+            <div class="stat">
+                <div class="stat__number" data-target="5000">0</div>
+                <div class="stat__label">Участников</div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -1577,85 +1928,69 @@ img { max-width: 100%; display: block; }
 <!-- Experience -->
 <section class="experience" id="experience">
     <div class="experience__header">
-        <div class="experience__label reveal">Что вас ждёт</div>
-        <h2 class="experience__title reveal">Полное погружение в практику</h2>
+        <div>
+            <div class="experience__tag reveal">Программа</div>
+            <h2 class="experience__title reveal">Что вас ждёт на фестивале</h2>
+        </div>
+        <a href="#schedule" class="experience__link reveal">
+            Расписание
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
     </div>
     <div class="experience__grid">
         <div class="exp-card reveal">
-            <div class="exp-card__number">01</div>
-            <div class="exp-card__content">
-                <div class="exp-card__icon">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-                </div>
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80" alt="" class="exp-card__image">
+            <div class="exp-card__overlay">
                 <h3 class="exp-card__title">Рассветные практики</h3>
-                <p class="exp-card__text">Встречайте солнце в асанах прямо на берегу озера</p>
+                <p class="exp-card__desc">Сурья Намаскар на берегу озера</p>
             </div>
         </div>
         <div class="exp-card reveal reveal-delay-1">
-            <div class="exp-card__number">02</div>
-            <div class="exp-card__content">
-                <div class="exp-card__icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                </div>
-                <h3 class="exp-card__title">Мастер-классы</h3>
-                <p class="exp-card__text">Углублённая работа с телом, дыханием и сознанием</p>
+            <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80" alt="" class="exp-card__image">
+            <div class="exp-card__overlay">
+                <h3 class="exp-card__title">Медитации</h3>
+                <p class="exp-card__desc">Практики осознанности в лесу</p>
             </div>
         </div>
         <div class="exp-card reveal reveal-delay-2">
-            <div class="exp-card__number">03</div>
-            <div class="exp-card__content">
-                <div class="exp-card__icon">
-                    <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
-                </div>
-                <h3 class="exp-card__title">Живое питание</h3>
-                <p class="exp-card__text">Вегетарианская кухня от шеф-повара из локальных продуктов</p>
+            <img src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=600&q=80" alt="" class="exp-card__image">
+            <div class="exp-card__overlay">
+                <h3 class="exp-card__title">Мастер-классы</h3>
+                <p class="exp-card__desc">Углублённая работа с телом</p>
+            </div>
+        </div>
+        <div class="exp-card reveal reveal-delay-3">
+            <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&q=80" alt="" class="exp-card__image">
+            <div class="exp-card__overlay">
+                <h3 class="exp-card__title">Вечера у костра</h3>
+                <p class="exp-card__desc">Kirtan и живая музыка</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Gallery -->
-<section class="gallery">
-    <div class="gallery__header">
-        <h2 class="gallery__title">Атмосфера фестиваля</h2>
-        <div class="gallery__nav">
-            <button class="gallery__btn" onclick="scrollGallery(-1)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <button class="gallery__btn" onclick="scrollGallery(1)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
-        </div>
+<!-- Video Section -->
+<section class="video-section">
+    <div class="video-section__bg">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1920&q=80" alt="">
+        <div class="video-section__overlay"></div>
     </div>
-    <div class="gallery__track" id="galleryTrack">
-        <div class="gallery__item">
-            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80" alt="">
-            <div class="gallery__item-overlay"><span class="gallery__item-title">Утренняя практика</span></div>
+    <div class="video-section__content">
+        <div class="video-section__play" onclick="playVideo()">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         </div>
-        <div class="gallery__item">
-            <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=800&q=80" alt="">
-            <div class="gallery__item-overlay"><span class="gallery__item-title">Медитация</span></div>
-        </div>
-        <div class="gallery__item">
-            <img src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=800&q=80" alt="">
-            <div class="gallery__item-overlay"><span class="gallery__item-title">Вечер у костра</span></div>
-        </div>
-        <div class="gallery__item">
-            <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=800&q=80" alt="">
-            <div class="gallery__item-overlay"><span class="gallery__item-title">Групповая практика</span></div>
-        </div>
-        <div class="gallery__item">
-            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80" alt="">
-            <div class="gallery__item-overlay"><span class="gallery__item-title">Лекции</span></div>
-        </div>
+        <p class="video-section__title">«Атмосфера, которую невозможно передать словами — только почувствовать»</p>
     </div>
 </section>
 
 <!-- Schedule -->
 <section class="schedule" id="schedule">
     <div class="schedule__header">
-        <h2 class="schedule__title reveal">Расписание</h2>
-        <div class="schedule__days">
+        <div>
+            <div class="schedule__tag reveal">Расписание</div>
+            <h2 class="schedule__title reveal">День первый</h2>
+        </div>
+        <div class="schedule__days reveal">
             <button class="schedule__day-btn active">День 1</button>
             <button class="schedule__day-btn">День 2</button>
             <button class="schedule__day-btn">День 3</button>
@@ -1667,22 +2002,28 @@ img { max-width: 100%; display: block; }
             <div class="schedule__time">06:00</div>
             <div class="schedule__info">
                 <h3>Сурья Намаскар</h3>
-                <p>Приветствие солнцу на рассвете у озера</p>
+                <p>Приветствие солнцу на рассвете</p>
             </div>
             <div class="schedule__teacher">
-                <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=100&q=80" alt="" class="schedule__teacher-img">
-                <span class="schedule__teacher-name">Мария Светлова</span>
+                <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=200&q=80" alt="" class="schedule__teacher-img">
+                <div>
+                    <div class="schedule__teacher-name">Мария Светлова</div>
+                    <div class="schedule__teacher-role">Хатха-йога</div>
+                </div>
             </div>
         </div>
         <div class="schedule__item reveal">
             <div class="schedule__time">10:00</div>
             <div class="schedule__info">
                 <h3>Аштанга-виньяса</h3>
-                <p>Динамичная практика для опытных практиков</p>
+                <p>Динамичная практика для продвинутых</p>
             </div>
             <div class="schedule__teacher">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="" class="schedule__teacher-img">
-                <span class="schedule__teacher-name">Алексей Волков</span>
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="" class="schedule__teacher-img">
+                <div>
+                    <div class="schedule__teacher-name">Алексей Волков</div>
+                    <div class="schedule__teacher-role">Аштанга</div>
+                </div>
             </div>
         </div>
         <div class="schedule__item reveal">
@@ -1692,8 +2033,11 @@ img { max-width: 100%; display: block; }
                 <p>Лекция о йога-сутрах Патанджали</p>
             </div>
             <div class="schedule__teacher">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="" class="schedule__teacher-img">
-                <span class="schedule__teacher-name">Дмитрий Орлов</span>
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" alt="" class="schedule__teacher-img">
+                <div>
+                    <div class="schedule__teacher-name">Дмитрий Орлов</div>
+                    <div class="schedule__teacher-role">Философия</div>
+                </div>
             </div>
         </div>
         <div class="schedule__item reveal">
@@ -1703,8 +2047,11 @@ img { max-width: 100%; display: block; }
                 <p>Глубокое расслабление и звуковая медитация</p>
             </div>
             <div class="schedule__teacher">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="" class="schedule__teacher-img">
-                <span class="schedule__teacher-name">Елена Морозова</span>
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="" class="schedule__teacher-img">
+                <div>
+                    <div class="schedule__teacher-name">Елена Морозова</div>
+                    <div class="schedule__teacher-role">Инь-йога</div>
+                </div>
             </div>
         </div>
     </div>
@@ -1713,34 +2060,34 @@ img { max-width: 100%; display: block; }
 <!-- Teachers -->
 <section class="teachers" id="teachers">
     <div class="teachers__header">
-        <div class="teachers__label reveal">Преподаватели</div>
+        <div class="teachers__tag reveal">Преподаватели</div>
         <h2 class="teachers__title reveal">Ведущие фестиваля</h2>
     </div>
     <div class="teachers__grid">
         <div class="teacher reveal">
             <div class="teacher__image">
-                <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=600&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&q=80" alt="">
             </div>
             <h3 class="teacher__name">Мария Светлова</h3>
             <p class="teacher__role">Хатха-йога · Виньяса</p>
         </div>
         <div class="teacher reveal reveal-delay-1">
             <div class="teacher__image">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="">
             </div>
             <h3 class="teacher__name">Алексей Волков</h3>
             <p class="teacher__role">Аштанга · Пранаяма</p>
         </div>
         <div class="teacher reveal reveal-delay-2">
             <div class="teacher__image">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=80" alt="">
             </div>
             <h3 class="teacher__name">Елена Морозова</h3>
             <p class="teacher__role">Инь-йога · Медитация</p>
         </div>
         <div class="teacher reveal reveal-delay-3">
             <div class="teacher__image">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=80" alt="">
             </div>
             <h3 class="teacher__name">Дмитрий Орлов</h3>
             <p class="teacher__role">Философия · Пранаяма</p>
@@ -1750,23 +2097,52 @@ img { max-width: 100%; display: block; }
 
 <!-- Testimonials -->
 <section class="testimonials">
-    <div class="testimonials__label reveal">Отзывы</div>
-    <blockquote class="testimonials__quote reveal">
-        «Это был трансформирующий опыт. Я приехала уставшей и выгоревшей, а уехала с чувством, будто заново родилась»
-    </blockquote>
-    <div class="testimonials__author reveal">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="" class="testimonials__author-img">
-        <div class="testimonials__author-info">
-            <div class="testimonials__author-name">Анна Петрова</div>
-            <div class="testimonials__author-title">Участница 2025</div>
+    <div class="testimonials__bg-text">ОТЗЫВЫ</div>
+    <div class="testimonials__tag reveal">Отзывы участников</div>
+    <div class="testimonials__carousel">
+        <div class="testimonial active">
+            <blockquote class="testimonial__quote">«Это был трансформирующий опыт. Я приехала уставшей и выгоревшей, а уехала с чувством, будто заново родилась»</blockquote>
+            <div class="testimonial__author">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="" class="testimonial__author-img">
+                <div class="testimonial__author-info">
+                    <div class="testimonial__author-name">Анна Петрова</div>
+                    <div class="testimonial__author-title">Участница 2025</div>
+                </div>
+            </div>
         </div>
+        <div class="testimonial">
+            <blockquote class="testimonial__quote">«Невероятная атмосфера, профессиональные преподаватели и прекрасная природа. Уже планирую приехать снова»</blockquote>
+            <div class="testimonial__author">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="" class="testimonial__author-img">
+                <div class="testimonial__author-info">
+                    <div class="testimonial__author-name">Михаил Соколов</div>
+                    <div class="testimonial__author-title">Участник 2024</div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial">
+            <blockquote class="testimonial__quote">«Фестиваль изменил моё отношение к практике. Теперь йога — не просто упражнения, а образ жизни»</blockquote>
+            <div class="testimonial__author">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&q=80" alt="" class="testimonial__author-img">
+                <div class="testimonial__author-info">
+                    <div class="testimonial__author-name">Екатерина Иванова</div>
+                    <div class="testimonial__author-title">Участница 2025</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="testimonials__nav">
+        <div class="testimonials__dot active" data-index="0"></div>
+        <div class="testimonials__dot" data-index="1"></div>
+        <div class="testimonials__dot" data-index="2"></div>
     </div>
 </section>
 
 <!-- Pricing -->
 <section class="pricing" id="pricing">
     <div class="pricing__header">
-        <h2 class="pricing__title reveal">Выберите билет</h2>
+        <div class="pricing__tag reveal">Билеты</div>
+        <h2 class="pricing__title reveal">Выберите свой формат</h2>
     </div>
     <div class="pricing__grid">
         <div class="price-card price-card--basic reveal">
@@ -1812,6 +2188,7 @@ img { max-width: 100%; display: block; }
 <section class="faq" id="faq">
     <div class="faq__inner">
         <div class="faq__header">
+            <div class="faq__tag reveal">FAQ</div>
             <h2 class="faq__title reveal">Частые вопросы</h2>
         </div>
         <div class="faq__item reveal">
@@ -1860,7 +2237,7 @@ img { max-width: 100%; display: block; }
         <div class="location__overlay"></div>
     </div>
     <div class="location__content">
-        <div class="location__label reveal">Место</div>
+        <div class="location__tag reveal">Место проведения</div>
         <h2 class="location__title reveal">Эко-база «Гармония»</h2>
         <p class="location__text reveal">Уединённое место на берегу озера в окружении соснового леса. 50 км от города — и вы в другом мире.</p>
         <div class="location__info">
@@ -1880,22 +2257,22 @@ img { max-width: 100%; display: block; }
     </div>
 </section>
 
-<!-- CTA Banner -->
-<section class="cta-banner">
-    <h2 class="cta-banner__title reveal">Готовы к трансформации?</h2>
-    <p class="cta-banner__text reveal">Забронируйте место сейчас — количество ограничено</p>
-    <button class="cta-banner__btn reveal">
+<!-- CTA -->
+<section class="cta">
+    <h2 class="cta__title reveal">Готовы к трансформации?</h2>
+    <p class="cta__text reveal">Забронируйте место сейчас — количество ограничено</p>
+    <a href="#pricing" class="cta__btn reveal">
         Забронировать место
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </button>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
     <div class="footer__top">
-        <div class="footer__brand">
+        <div>
             <div class="footer__logo">YogaFest</div>
-            <p class="footer__tagline">Летний йога-фестиваль 2026</p>
+            <p class="footer__tagline">Летний йога-фестиваль на берегу озера. 15-18 июля 2026.</p>
             <div class="footer__social">
                 <a href="#">TG</a>
                 <a href="#">IG</a>
@@ -1905,7 +2282,7 @@ img { max-width: 100%; display: block; }
         <div class="footer__column">
             <h4>Навигация</h4>
             <ul>
-                <li><a href="#about">О нас</a></li>
+                <li><a href="#philosophy">О нас</a></li>
                 <li><a href="#schedule">Расписание</a></li>
                 <li><a href="#teachers">Учителя</a></li>
                 <li><a href="#pricing">Билеты</a></li>
@@ -1933,58 +2310,114 @@ img { max-width: 100%; display: block; }
     </div>
 </footer>
 
+<!-- Floating Contact -->
+<a href="https://t.me/yogafest" class="float-contact" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.05-.2-.07-.06-.17-.04-.24-.02-.1.03-1.76 1.12-4.97 3.29-.47.32-.9.48-1.28.47-.42-.01-1.23-.24-1.83-.43-.74-.24-1.32-.36-1.27-.77.03-.21.32-.42.88-.63 3.44-1.5 5.74-2.49 6.89-2.97 3.29-1.37 3.97-1.61 4.42-1.62.1 0 .32.02.46.13.12.09.15.21.17.33-.01.06.01.24-.01.38z"/></svg>
+    <span>Написать в Telegram</span>
+</a>
+
 <script>
 // ==================== SCRIPTS ====================
 
 // Preloader
 window.addEventListener('load', () => {
     setTimeout(() => {
-        document.querySelector('.preloader').classList.add('hidden');
-    }, 1000);
+        document.getElementById('preloader').classList.add('hidden');
+    }, 1500);
 });
 
-// Custom Cursor
-const cursor = document.querySelector('.cursor');
-let mouseX = 0, mouseY = 0;
-
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top = mouseY + 'px';
+// Progress Bar
+window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
 });
 
-document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+// Navigation scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
 });
 
-// Countdown Timer
-function updateCountdown() {
-    const target = new Date('2026-07-15T00:00:00').getTime();
-    const now = new Date().getTime();
-    const diff = target - now;
+// Parallax for about image
+const aboutImage = document.getElementById('aboutImage');
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const aboutSection = document.querySelector('.about');
+    const rect = aboutSection.getBoundingClientRect();
     
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const offset = (rect.top / window.innerHeight) * 50;
+        aboutImage.style.transform = `translateY(${offset}px)`;
+    }
+});
+
+// Stats counter animation
+const stats = document.querySelectorAll('.stat__number');
+let statsAnimated = false;
+
+function animateStats() {
+    stats.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        
+        const counter = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                stat.textContent = target.toLocaleString() + '+';
+                clearInterval(counter);
+            } else {
+                stat.textContent = Math.floor(current).toLocaleString();
+            }
+        }, 16);
+    });
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
+// Check if stats section is in view
+const aboutSection = document.querySelector('.about');
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !statsAnimated) {
+            statsAnimated = true;
+            animateStats();
+        }
+    });
+}, { threshold: 0.5 });
 
-// Gallery Scroll
-function scrollGallery(direction) {
-    const track = document.getElementById('galleryTrack');
-    const scrollAmount = 424;
-    track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+statsObserver.observe(aboutSection);
+
+// Testimonials carousel
+const testimonials = document.querySelectorAll('.testimonial');
+const dots = document.querySelectorAll('.testimonials__dot');
+let currentTestimonial = 0;
+
+function showTestimonial(index) {
+    testimonials.forEach(t => t.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    
+    testimonials[index].classList.add('active');
+    dots[index].classList.add('active');
+    currentTestimonial = index;
 }
+
+dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+        showTestimonial(parseInt(dot.getAttribute('data-index')));
+    });
+});
+
+// Auto-rotate testimonials
+setInterval(() => {
+    const next = (currentTestimonial + 1) % testimonials.length;
+    showTestimonial(next);
+}, 5000);
 
 // FAQ Accordion
 document.querySelectorAll('.faq__question').forEach(btn => {
@@ -2000,7 +2433,7 @@ document.querySelectorAll('.faq__question').forEach(btn => {
     });
 });
 
-// Schedule Tabs
+// Schedule day buttons
 document.querySelectorAll('.schedule__day-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         document.querySelectorAll('.schedule__day-btn').forEach(b => b.classList.remove('active'));
@@ -2012,13 +2445,11 @@ document.querySelectorAll('.schedule__day-btn').forEach(btn => {
 const revealElements = document.querySelectorAll('.reveal');
 
 const revealOnScroll = () => {
-    const windowHeight = window.innerHeight;
-    
     revealElements.forEach(el => {
         const elementTop = el.getBoundingClientRect().top;
-        const revealPoint = 150;
+        const revealPoint = window.innerHeight - 100;
         
-        if (elementTop < windowHeight - revealPoint) {
+        if (elementTop < revealPoint) {
             el.classList.add('visible');
         }
     });
@@ -2027,7 +2458,7 @@ const revealOnScroll = () => {
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll();
 
-// Smooth Scroll
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -2037,6 +2468,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Video play function (placeholder)
+function playVideo() {
+    alert('Видео откроется в модальном окне. Здесь будет интеграция с YouTube/Vimeo.');
+}
 </script>
 
 </body>
