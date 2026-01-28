@@ -229,9 +229,92 @@ img { max-width: 100%; display: block; }
     color: white;
 }
 
+/* Mobile Menu Button */
+.nav__burger {
+    display: none;
+    width: 32px;
+    height: 24px;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 110;
+}
+
+.nav__burger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transition: all 0.3s var(--ease-smooth);
+}
+
+.nav.scrolled .nav__burger span {
+    background: var(--charcoal);
+}
+
+.nav__burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 8px);
+}
+
+.nav__burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav__burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -8px);
+}
+
+/* Mobile Menu Overlay */
+.nav__mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--charcoal);
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s var(--ease-smooth);
+}
+
+.nav__mobile.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav__mobile a {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    color: white;
+    transition: color 0.3s;
+}
+
+.nav__mobile a:hover {
+    color: var(--terracotta);
+}
+
+.nav__mobile-cta {
+    margin-top: 20px;
+    padding: 16px 40px;
+    background: var(--terracotta);
+    border-radius: 100px;
+    font-family: var(--font-sans);
+    font-size: 14px !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
 @media (max-width: 1000px) {
     .nav { padding: 20px 24px; }
     .nav__menu { display: none; }
+    .nav__cta { display: none; }
+    .nav__burger { display: flex; }
 }
 
 /* ================================================
@@ -677,7 +760,15 @@ img { max-width: 100%; display: block; }
     .about__image { height: 60vh; }
     .about__image img { position: relative; height: 100%; top: 0; }
     .about__content { padding: 60px 24px; }
-    .about__stats { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .about__stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .stat__number { font-size: 32px; }
+    .stat__label { font-size: 10px; letter-spacing: 0.5px; }
+}
+
+@media (max-width: 400px) {
+    .about__stats { gap: 10px; }
+    .stat__number { font-size: 28px; }
+    .stat__label { font-size: 9px; }
 }
 
 /* ================================================
@@ -1799,7 +1890,22 @@ img { max-width: 100%; display: block; }
         <li><a href="#pricing" class="nav__link">Билеты</a></li>
     </ul>
     <a href="#pricing" class="nav__cta">Забронировать</a>
+    <div class="nav__burger" id="navBurger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </nav>
+
+<!-- Mobile Menu -->
+<div class="nav__mobile" id="navMobile">
+    <a href="#philosophy" class="nav__mobile-link">Философия</a>
+    <a href="#experience" class="nav__mobile-link">Программа</a>
+    <a href="#teachers" class="nav__mobile-link">Учителя</a>
+    <a href="#pricing" class="nav__mobile-link">Билеты</a>
+    <a href="#faq" class="nav__mobile-link">FAQ</a>
+    <a href="#pricing" class="nav__mobile-cta">Забронировать</a>
+</div>
 
 <!-- Hero -->
 <section class="hero">
@@ -2457,6 +2563,25 @@ const revealOnScroll = () => {
 
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll();
+
+// Mobile Menu
+const navBurger = document.getElementById('navBurger');
+const navMobile = document.getElementById('navMobile');
+
+navBurger.addEventListener('click', () => {
+    navBurger.classList.toggle('active');
+    navMobile.classList.toggle('active');
+    document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+});
+
+// Close mobile menu on link click
+document.querySelectorAll('.nav__mobile-link, .nav__mobile-cta').forEach(link => {
+    link.addEventListener('click', () => {
+        navBurger.classList.remove('active');
+        navMobile.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+});
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
