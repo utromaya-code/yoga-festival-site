@@ -3,31 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Летний Йога-Фестиваль 2026 — Сообщество единомышленников</title>
+    <title>Летний Йога-Фестиваль 2026 — Ладога, белые ночи</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Warm, cozy palette */
-            --peach: #FFAB91;
-            --peach-light: #FFCCBC;
-            --peach-dark: #E57B5C;
-            --sand: #FFF8E7;
-            --sand-dark: #F5E6D3;
-            --warm-white: #FFFDF9;
-            --terracotta: #D4856A;
-            --sage: #9CAF88;
-            --sage-light: #C5D4BC;
-            --charcoal: #3D3D3D;
-            --warm-gray: #6B6B6B;
-            --gold: #D4A574;
+            /* Ладога · хвойный лес · закат · белые ночи */
+            --forest: #2D4A3E;
+            --forest-light: #3D6B52;
+            --pine: #5B8A72;
+            --ladoga: #4A6FA5;
+            --ladoga-light: #6B8FBF;
+            --sunset: #C97B5C;
+            --sunset-gold: #E8A35D;
+            --white-night: #E8EAF0;
+            --white-night-mid: #A8B5C4;
+            --dusk: #5C6B7A;
+            --bg: #F2F4F6;
+            --bg-card: #FFFFFF;
+            --text: #1A2520;
+            --text-muted: #3D4A45;
+            --accent: var(--forest-light);
+            --accent-warm: var(--sunset);
             
             --font-body: 'Nunito', -apple-system, sans-serif;
             --font-display: 'Playfair Display', Georgia, serif;
             
             --ease: cubic-bezier(0.4, 0, 0.2, 1);
-            --shadow-soft: 0 4px 30px rgba(212, 133, 106, 0.12);
-            --shadow-hover: 0 12px 40px rgba(212, 133, 106, 0.18);
+            --shadow-soft: 0 4px 24px rgba(45, 74, 62, 0.12);
+            --shadow-hover: 0 12px 40px rgba(45, 74, 62, 0.2);
             --radius: 24px;
             --radius-lg: 40px;
         }
@@ -38,8 +42,8 @@
         
         body {
             font-family: var(--font-body);
-            background: var(--warm-white);
-            color: var(--charcoal);
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.7;
             overflow-x: hidden;
         }
@@ -56,28 +60,29 @@
             font-weight: 600;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--terracotta);
+            color: var(--forest-light);
             margin-bottom: 16px;
         }
         .section-tag::before {
             content: '';
             width: 30px;
             height: 2px;
-            background: var(--peach);
+            background: var(--accent-warm);
             border-radius: 2px;
         }
         
         .section-title {
             font-family: var(--font-display);
             font-size: clamp(32px, 5vw, 52px);
-            font-weight: 400;
+            font-weight: 500;
             line-height: 1.2;
             margin-bottom: 20px;
+            color: var(--text);
         }
         
         .section-subtitle {
             font-size: 18px;
-            color: var(--warm-gray);
+            color: var(--text-muted);
             max-width: 600px;
         }
 
@@ -96,21 +101,21 @@
             transition: all 0.4s var(--ease);
         }
         .btn-primary {
-            background: linear-gradient(135deg, var(--peach) 0%, var(--terracotta) 100%);
+            background: linear-gradient(135deg, var(--accent-warm) 0%, var(--forest-light) 100%);
             color: white;
-            box-shadow: 0 8px 24px rgba(255, 171, 145, 0.4);
+            box-shadow: 0 6px 20px rgba(45, 74, 62, 0.35);
         }
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(255, 171, 145, 0.5);
+            box-shadow: 0 10px 28px rgba(45, 74, 62, 0.45);
         }
         .btn-outline {
             background: transparent;
-            border: 2px solid var(--peach);
-            color: var(--terracotta);
+            border: 2px solid var(--accent-warm);
+            color: var(--forest-light);
         }
         .btn-outline:hover {
-            background: var(--peach);
+            background: var(--accent-warm);
             color: white;
         }
 
@@ -135,7 +140,7 @@
             transition: all 0.4s var(--ease);
         }
         .nav.scrolled {
-            background: rgba(255, 253, 249, 0.95);
+            background: rgba(242, 244, 246, 0.98);
             backdrop-filter: blur(20px);
             padding: 14px 40px;
             box-shadow: var(--shadow-soft);
@@ -147,7 +152,7 @@
             color: white;
             transition: color 0.3s;
         }
-        .nav.scrolled .nav__logo { color: var(--charcoal); }
+        .nav.scrolled .nav__logo { color: var(--forest); }
         .nav__links {
             display: flex;
             gap: 36px;
@@ -159,8 +164,8 @@
             color: rgba(255,255,255,0.9);
             transition: color 0.3s;
         }
-        .nav.scrolled .nav__links a { color: var(--charcoal); }
-        .nav__links a:hover { color: var(--peach); }
+        .nav.scrolled .nav__links a { color: var(--text); }
+        .nav__links a:hover { color: var(--forest-light); }
         .nav__cta {
             padding: 12px 24px;
             background: rgba(255,255,255,0.2);
@@ -172,7 +177,7 @@
             transition: all 0.3s;
         }
         .nav.scrolled .nav__cta {
-            background: var(--peach);
+            background: var(--forest);
             color: white;
         }
         .nav__cta:hover { transform: scale(1.05); }
@@ -191,13 +196,13 @@
             background: white;
             transition: all 0.3s;
         }
-        .nav.scrolled .nav__burger span { background: var(--charcoal); }
+        .nav.scrolled .nav__burger span { background: var(--text); }
         
         .nav__mobile {
             display: none;
             position: fixed;
             inset: 0;
-            background: linear-gradient(135deg, var(--peach) 0%, var(--terracotta) 100%);
+            background: linear-gradient(135deg, var(--forest) 0%, var(--ladoga) 100%);
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -242,9 +247,9 @@
             inset: 0;
             background: linear-gradient(
                 135deg,
-                rgba(212, 133, 106, 0.4) 0%,
-                rgba(156, 175, 136, 0.3) 50%,
-                rgba(0, 0, 0, 0.4) 100%
+                rgba(45, 74, 62, 0.5) 0%,
+                rgba(74, 111, 165, 0.35) 40%,
+                rgba(0, 0, 0, 0.5) 100%
             );
         }
         .hero__content {
@@ -269,7 +274,7 @@
         .hero__badge-dot {
             width: 8px;
             height: 8px;
-            background: var(--peach-light);
+            background: var(--sunset-gold);
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
@@ -286,7 +291,7 @@
         }
         .hero__title em {
             font-style: italic;
-            color: var(--peach-light);
+            color: var(--sunset-gold);
         }
         .hero__text {
             font-size: 18px;
@@ -322,9 +327,9 @@
 
         /* ===== TRUST BAR ===== */
         .trust {
-            background: white;
+            background: var(--bg-card);
             padding: 30px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 2px solid var(--white-night-mid);
         }
         .trust__inner {
             display: flex;
@@ -341,8 +346,9 @@
         .trust__icon {
             width: 44px;
             height: 44px;
-            background: var(--sand);
+            background: var(--white-night);
             border-radius: 12px;
+            border: 1px solid var(--white-night-mid);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -350,7 +356,7 @@
         .trust__icon svg {
             width: 22px;
             height: 22px;
-            stroke: var(--terracotta);
+            stroke: var(--forest-light);
             stroke-width: 1.5;
             fill: none;
         }
@@ -358,17 +364,17 @@
             display: block;
             font-size: 18px;
             font-weight: 700;
-            color: var(--charcoal);
+            color: var(--forest);
         }
         .trust__text span {
             font-size: 13px;
-            color: var(--warm-gray);
+            color: var(--text-muted);
         }
 
         /* ===== ABOUT / COMMUNITY ===== */
         .about {
             padding: 120px 0;
-            background: var(--sand);
+            background: var(--white-night);
         }
         .about__grid {
             display: grid;
@@ -396,7 +402,7 @@
             width: 200px;
             border-radius: var(--radius);
             overflow: hidden;
-            border: 6px solid var(--sand);
+            border: 6px solid var(--white-night);
             box-shadow: var(--shadow-soft);
         }
         .about__img-float img {
@@ -409,27 +415,27 @@
         }
         .about__text {
             font-size: 17px;
-            color: var(--warm-gray);
+            color: var(--text-muted);
             margin-bottom: 16px;
         }
         .about__highlight {
             padding: 24px;
-            background: white;
+            background: var(--bg-card);
             border-radius: var(--radius);
-            border-left: 4px solid var(--peach);
+            border-left: 4px solid var(--forest-light);
             margin: 32px 0;
         }
         .about__highlight p {
             font-family: var(--font-display);
             font-size: 20px;
             font-style: italic;
-            color: var(--charcoal);
+            color: var(--text);
         }
 
         /* ===== STATS ===== */
         .stats {
             padding: 80px 0;
-            background: linear-gradient(135deg, var(--peach) 0%, var(--terracotta) 100%);
+            background: linear-gradient(135deg, var(--forest) 0%, var(--ladoga) 100%);
         }
         .stats__grid {
             display: grid;
@@ -455,7 +461,7 @@
         /* ===== YOGA STYLES ===== */
         .styles {
             padding: 120px 0;
-            background: var(--warm-white);
+            background: var(--bg);
         }
         .styles__header {
             text-align: center;
@@ -479,13 +485,13 @@
         .style-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
-            border-color: var(--peach-light);
+            border-color: var(--forest-light);
         }
         .style-card__icon {
             width: 80px;
             height: 80px;
             margin: 0 auto 20px;
-            background: linear-gradient(135deg, var(--sand) 0%, var(--peach-light) 100%);
+            background: linear-gradient(135deg, var(--white-night) 0%, var(--sunset-gold) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -494,7 +500,7 @@
         .style-card__icon svg {
             width: 36px;
             height: 36px;
-            stroke: var(--terracotta);
+            stroke: var(--forest-light);
             stroke-width: 1.5;
             fill: none;
         }
@@ -506,23 +512,23 @@
         .style-card__level {
             display: inline-block;
             padding: 4px 12px;
-            background: var(--sand);
+            background: var(--white-night);
             border-radius: 100px;
             font-size: 11px;
             font-weight: 600;
-            color: var(--terracotta);
+            color: var(--forest-light);
             margin-bottom: 12px;
         }
         .style-card__text {
             font-size: 15px;
-            color: var(--warm-gray);
+            color: var(--text-muted);
             line-height: 1.7;
         }
 
         /* ===== COMMUNITY ===== */
         .community {
             padding: 120px 0;
-            background: var(--sand);
+            background: var(--white-night);
             overflow: hidden;
         }
         .community__header {
@@ -574,7 +580,7 @@
             font-size: clamp(22px, 3vw, 32px);
             font-style: italic;
             line-height: 1.5;
-            color: var(--charcoal);
+            color: var(--text);
             margin-bottom: 24px;
         }
         .community__quote-author {
@@ -588,7 +594,7 @@
             height: 56px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--peach-light);
+            border: 3px solid var(--sunset-gold);
         }
         .community__quote-name {
             text-align: left;
@@ -599,7 +605,7 @@
         }
         .community__quote-name span {
             font-size: 14px;
-            color: var(--warm-gray);
+            color: var(--text-muted);
         }
         .community__dots {
             display: flex;
@@ -611,19 +617,19 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: var(--peach-light);
+            background: var(--white-night-mid);
             cursor: pointer;
             transition: all 0.3s;
         }
         .community__dot.active {
-            background: var(--terracotta);
+            background: var(--forest);
             transform: scale(1.2);
         }
 
         /* ===== TEACHERS ===== */
         .teachers {
             padding: 120px 0;
-            background: var(--warm-white);
+            background: var(--bg);
         }
         .teachers__header {
             text-align: center;
@@ -664,7 +670,7 @@
             border-radius: 100px;
             font-size: 12px;
             font-weight: 600;
-            color: var(--terracotta);
+            color: var(--forest-light);
             box-shadow: var(--shadow-soft);
         }
         .teacher__name {
@@ -674,7 +680,7 @@
         }
         .teacher__role {
             font-size: 14px;
-            color: var(--warm-gray);
+            color: var(--text-muted);
         }
 
         /* ===== SCHEDULE ===== */
@@ -693,7 +699,7 @@
         }
         .schedule__day {
             padding: 14px 28px;
-            background: var(--sand);
+            background: var(--white-night);
             border: none;
             border-radius: 100px;
             font-family: var(--font-body);
@@ -704,23 +710,23 @@
         }
         .schedule__day.active,
         .schedule__day:hover {
-            background: linear-gradient(135deg, var(--peach) 0%, var(--terracotta) 100%);
+            background: linear-gradient(135deg, var(--accent-warm) 0%, var(--forest-light) 100%);
             color: white;
         }
         .schedule__list {
-            border-top: 1px solid var(--sand-dark);
+            border-top: 1px solid var(--white-night-mid);
         }
         .schedule__item {
             display: grid;
             grid-template-columns: 100px 1fr auto;
             gap: 40px;
             padding: 28px 0;
-            border-bottom: 1px solid var(--sand-dark);
+            border-bottom: 1px solid var(--white-night-mid);
             align-items: center;
             transition: all 0.3s;
         }
         .schedule__item:hover {
-            background: var(--sand);
+            background: var(--white-night);
             margin: 0 -20px;
             padding: 28px 20px;
             border-radius: var(--radius);
@@ -728,7 +734,7 @@
         .schedule__time {
             font-family: var(--font-display);
             font-size: 20px;
-            color: var(--terracotta);
+            color: var(--forest-light);
         }
         .schedule__info h3 {
             font-family: var(--font-display);
@@ -738,7 +744,7 @@
         }
         .schedule__info p {
             font-size: 14px;
-            color: var(--warm-gray);
+            color: var(--text-muted);
         }
         .schedule__teacher {
             display: flex;
@@ -759,7 +765,7 @@
         /* ===== PRICING ===== */
         .pricing {
             padding: 120px 0;
-            background: var(--sand);
+            background: var(--white-night);
         }
         .pricing__header {
             text-align: center;
@@ -786,7 +792,7 @@
             box-shadow: var(--shadow-hover);
         }
         .price-card--popular {
-            background: linear-gradient(135deg, var(--peach) 0%, var(--terracotta) 100%);
+            background: linear-gradient(135deg, var(--accent-warm) 0%, var(--forest-light) 100%);
             color: white;
             transform: scale(1.05);
         }
@@ -799,7 +805,7 @@
             left: 50%;
             transform: translateX(-50%);
             padding: 8px 20px;
-            background: var(--gold);
+            background: var(--sunset-gold);
             color: white;
             font-size: 11px;
             font-weight: 700;
@@ -841,10 +847,10 @@
         .price-card__features li::before {
             content: '✓';
             font-weight: bold;
-            color: var(--sage);
+            color: var(--pine);
         }
         .price-card--popular .price-card__features li::before {
-            color: var(--peach-light);
+            color: var(--sunset-gold);
         }
         .price-card__btn {
             width: 100%;
@@ -857,12 +863,12 @@
             transition: all 0.3s;
         }
         .price-card:not(.price-card--popular) .price-card__btn {
-            background: var(--charcoal);
+            background: var(--text);
             color: white;
         }
         .price-card--popular .price-card__btn {
             background: white;
-            color: var(--terracotta);
+            color: var(--forest-light);
         }
         .price-card__btn:hover {
             transform: scale(1.03);
@@ -871,7 +877,7 @@
         /* ===== FAQ ===== */
         .faq {
             padding: 120px 0;
-            background: var(--warm-white);
+            background: var(--bg);
         }
         .faq__inner {
             max-width: 750px;
@@ -882,7 +888,7 @@
             margin-bottom: 50px;
         }
         .faq__item {
-            border-bottom: 1px solid var(--sand-dark);
+            border-bottom: 1px solid var(--white-night-mid);
         }
         .faq__question {
             width: 100%;
@@ -898,11 +904,11 @@
             cursor: pointer;
             transition: color 0.3s;
         }
-        .faq__question:hover { color: var(--terracotta); }
+        .faq__question:hover { color: var(--forest-light); }
         .faq__icon {
             width: 32px;
             height: 32px;
-            background: var(--sand);
+            background: var(--white-night);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -911,7 +917,7 @@
             transition: all 0.3s;
         }
         .faq__item.active .faq__icon {
-            background: var(--peach);
+            background: var(--accent-warm);
             color: white;
             transform: rotate(45deg);
         }
@@ -925,7 +931,7 @@
             padding-bottom: 24px;
             font-size: 16px;
             line-height: 1.8;
-            color: var(--warm-gray);
+            color: var(--text-muted);
         }
 
         /* ===== LOCATION ===== */
@@ -949,9 +955,9 @@
             inset: 0;
             background: linear-gradient(
                 to right,
-                rgba(61, 61, 61, 0.95) 0%,
-                rgba(61, 61, 61, 0.7) 40%,
-                rgba(61, 61, 61, 0.3) 100%
+                rgba(45, 74, 62, 0.92) 0%,
+                rgba(74, 111, 165, 0.75) 40%,
+                rgba(92, 107, 122, 0.4) 100%
             );
         }
         .location__content {
@@ -985,7 +991,7 @@
         .location__feature-icon {
             width: 48px;
             height: 48px;
-            background: rgba(255,171,145,0.2);
+            background: rgba(232, 163, 93, 0.25);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -994,15 +1000,77 @@
         .location__feature-icon svg {
             width: 24px;
             height: 24px;
-            stroke: var(--peach-light);
+            stroke: var(--sunset-gold);
             stroke-width: 1.5;
             fill: none;
+        }
+
+        /* ===== MUSIC ===== */
+        .music {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--white-night) 0%, var(--bg) 100%);
+        }
+        .music__header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+        .music__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .music-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 32px;
+            text-align: center;
+            border: 2px solid var(--white-night-mid);
+            transition: all 0.3s var(--ease);
+        }
+        .music-card:hover {
+            border-color: var(--forest-light);
+            box-shadow: var(--shadow-soft);
+        }
+        .music-card__icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--ladoga) 0%, var(--forest-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .music-card__icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+            stroke-width: 1.5;
+            fill: none;
+        }
+        .music-card__title {
+            font-family: var(--font-display);
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        .music-card__text {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        .music-card__note {
+            font-size: 13px;
+            color: var(--dusk);
+            font-style: italic;
         }
 
         /* ===== CTA ===== */
         .cta {
             padding: 100px 60px;
-            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-light) 100%);
+            background: linear-gradient(135deg, var(--pine) 0%, var(--ladoga-light) 100%);
             text-align: center;
         }
         .cta__title {
@@ -1019,19 +1087,19 @@
         .cta__btn {
             padding: 20px 48px;
             background: white;
-            color: var(--sage-dark);
+            color: var(--forest);
             font-size: 15px;
             font-weight: 700;
         }
         .cta__btn:hover {
-            background: var(--charcoal);
+            background: var(--text);
             color: white;
         }
 
         /* ===== FOOTER ===== */
         .footer {
             padding: 80px 60px 40px;
-            background: var(--charcoal);
+            background: var(--text);
             color: white;
         }
         .footer__top {
@@ -1067,7 +1135,7 @@
             transition: all 0.3s;
         }
         .footer__social a:hover {
-            background: var(--peach);
+            background: var(--accent-warm);
         }
         .footer__col h4 {
             font-size: 12px;
@@ -1090,7 +1158,7 @@
         }
         .footer__col a:hover {
             opacity: 1;
-            color: var(--peach);
+            color: var(--accent-warm);
         }
         .footer__bottom {
             display: flex;
@@ -1112,12 +1180,12 @@
             align-items: center;
             gap: 12px;
             padding: 16px 24px;
-            background: linear-gradient(135deg, var(--peach) 0%, var(--terracotta) 100%);
+            background: linear-gradient(135deg, var(--accent-warm) 0%, var(--forest-light) 100%);
             color: white;
             border-radius: 100px;
             font-size: 14px;
             font-weight: 600;
-            box-shadow: 0 8px 32px rgba(255, 171, 145, 0.4);
+            box-shadow: 0 8px 32px rgba(45, 74, 62, 0.35);
             transition: all 0.4s var(--ease);
             opacity: 0;
             transform: translateY(20px);
@@ -1128,8 +1196,44 @@
         }
         .floating-cta:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(255, 171, 145, 0.5);
+            box-shadow: 0 12px 40px rgba(45, 74, 62, 0.45);
         }
+
+        /* ===== AMBIENT MUSIC TOGGLE ===== */
+        .music-toggle {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 901;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 2px solid var(--forest-light);
+            background: var(--bg-card);
+            color: var(--forest);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s var(--ease);
+        }
+        .music-toggle:hover {
+            background: var(--forest);
+            color: white;
+            transform: scale(1.08);
+        }
+        .music-toggle.playing {
+            background: var(--forest);
+            color: white;
+        }
+        .music-toggle svg {
+            width: 24px;
+            height: 24px;
+        }
+        .music-toggle .icon-pause { display: none; }
+        .music-toggle.playing .icon-play { display: none; }
+        .music-toggle.playing .icon-pause { display: block; }
 
         /* ===== ANIMATIONS ===== */
         .reveal {
@@ -1184,6 +1288,7 @@
             <li><a href="#about">О нас</a></li>
             <li><a href="#styles">Практики</a></li>
             <li><a href="#teachers">Учителя</a></li>
+            <li><a href="#music">Музыка</a></li>
             <li><a href="#schedule">Расписание</a></li>
             <li><a href="#pricing">Билеты</a></li>
         </ul>
@@ -1197,6 +1302,7 @@
         <a href="#about">О нас</a>
         <a href="#styles">Практики</a>
         <a href="#teachers">Учителя</a>
+        <a href="#music">Музыка</a>
         <a href="#schedule">Расписание</a>
         <a href="#pricing">Билеты</a>
     </div>
@@ -1210,10 +1316,10 @@
         <div class="hero__content">
             <div class="hero__badge">
                 <span class="hero__badge-dot"></span>
-                15 — 18 июля 2026 · Подмосковье
+                20–23 июня 2026 · Белые ночи · Ладога
             </div>
             <h1 class="hero__title">Летний <em>Йога</em> Фестиваль</h1>
-            <p class="hero__text">Присоединяйся к сообществу единомышленников. Четыре дня практики, тепла и настоящих связей на берегу озера.</p>
+            <p class="hero__text">Четыре дня в самом сердце лета — в белые ночи на берегу Ладоги. Ладожский дом, хвойный лес и сообщество единомышленников.</p>
             <div class="hero__actions">
                 <a href="#pricing" class="btn btn-primary">Забронировать место</a>
                 <a href="#about" class="btn btn-outline" style="background:rgba(255,255,255,0.15);border:none;color:white;">Узнать больше</a>
@@ -1282,10 +1388,10 @@
                 <div class="about__content reveal">
                     <span class="section-tag">О фестивале</span>
                     <h2 class="section-title">Больше чем йога — это семья</h2>
-                    <p class="about__text">За 6 лет мы создали настоящее сообщество людей, которые возвращаются к нам каждое лето. Здесь завязываются дружбы, рождаются проекты и происходят трансформации.</p>
-                    <p class="about__text">Мы верим, что йога — это не только асаны. Это способ жить осознанно, в гармонии с собой и окружающими.</p>
+                    <p class="about__text">Фестиваль проходит в центре <strong>Ладожский дом</strong> (Ladoga Home) — три базы в Приозерском районе Ленинградской области, в 120 км от Санкт-Петербурга. Домики в скандинавском стиле, лес и поляны, баня и Ладога рядом.</p>
+                    <p class="about__text">Мы проводим фестиваль летом, в период белых ночей — когда вечерняя заря сходится с утренней и сумерки длятся до рассвета. Йога, природа и люди — без суеты большого города.</p>
                     <div class="about__highlight">
-                        <p>«Место, где каждый может быть собой, и где незнакомцы становятся друзьями»</p>
+                        <p>«Место, где каждый может быть собой. Ладога, сосны и белые ночи»</p>
                     </div>
                     <a href="#community" class="btn btn-primary">Познакомиться с сообществом</a>
                 </div>
@@ -1483,6 +1589,41 @@
         </div>
     </section>
 
+    <!-- Music -->
+    <section class="music" id="music">
+        <div class="container">
+            <div class="music__header reveal">
+                <span class="section-tag">Музыка</span>
+                <h2 class="section-title">Музыка фестиваля</h2>
+                <p class="section-subtitle">Ambient, живая музыка у костра и плейлисты от нашего диджея — скоро здесь появятся треки</p>
+            </div>
+            <div class="music__grid reveal">
+                <div class="music-card">
+                    <div class="music-card__icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                    </div>
+                    <h3 class="music-card__title">Плейлисты диджея</h3>
+                    <p class="music-card__text">Подборки для практик и вечеров — в процессе</p>
+                    <p class="music-card__note">Скоро</p>
+                </div>
+                <div class="music-card">
+                    <div class="music-card__icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                    </div>
+                    <h3 class="music-card__title">Живая музыка</h3>
+                    <p class="music-card__text">Вечера у костра, kirtan и акустика</p>
+                </div>
+                <div class="music-card">
+                    <div class="music-card__icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    </div>
+                    <h3 class="music-card__title">Ambient на сайте</h3>
+                    <p class="music-card__text">Включи фоновую музыку кнопкой внизу слева</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Schedule -->
     <section class="schedule" id="schedule">
         <div class="container">
@@ -1636,15 +1777,15 @@
             <div class="location__overlay"></div>
         </div>
         <div class="location__content reveal">
-            <span class="section-tag" style="color:var(--peach-light);">Место проведения</span>
-            <h2 class="location__title">Эко-база «Гармония»</h2>
-            <p class="location__text">Уединённое место на берегу озера в окружении соснового леса. Всего 50 км от Москвы — и вы в другом мире, где время течёт иначе.</p>
+            <span class="section-tag" style="color:var(--sunset-gold);">Место проведения</span>
+            <h2 class="location__title">Ладожский дом</h2>
+            <p class="location__text">Центр Ladoga Home — Приозерский район, 120 км от Санкт-Петербурга. Ладога Хоум ЛЕС и Ладога Хоум ОЗЕРО: домики в скандинавском стиле, хвойный лес, баня, SUP и тишина. Идеально для йога-ретритов и летних фестивалей.</p>
             <div class="location__features">
                 <div class="location__feature">
                     <div class="location__feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                     </div>
-                    <span>50 км от МКАД, Московская область</span>
+                    <span>Приозерский район ЛО, 120 км от Санкт-Петербурга</span>
                 </div>
                 <div class="location__feature">
                     <div class="location__feature-icon">
@@ -1669,7 +1810,7 @@
             <div class="footer__top">
                 <div>
                     <div class="footer__logo">YogaFest</div>
-                    <p class="footer__tagline">Летний йога-фестиваль для тех, кто ищет тепло, практику и настоящие связи. С 2020 года.</p>
+                    <p class="footer__tagline">Йога-фестиваль на Ладоге в белые ночи. Ладожский дом, июнь, Санкт-Петербург рядом.</p>
                     <div class="footer__social">
                         <a href="#">TG</a>
                         <a href="#">IG</a>
@@ -1712,6 +1853,15 @@
     </footer>
 
     <!-- Floating CTA -->
+    <!-- Ambient: замените src на свой трек (или оставьте пустым и добавьте позже) -->
+    <audio id="ambientAudio" loop preload="none">
+        <source src="" type="audio/mpeg">
+    </audio>
+    <button type="button" class="music-toggle" id="musicToggle" title="Фоновая музыка" aria-label="Включить фоновую музыку">
+        <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+    </button>
+
     <a href="#pricing" class="floating-cta" id="floatingCta">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Забронировать
@@ -1824,6 +1974,49 @@
                 document.querySelectorAll('.schedule__day').forEach(d => d.classList.remove('active'));
                 day.classList.add('active');
             });
+        });
+
+        // Ambient music toggle
+        const ambientAudio = document.getElementById('ambientAudio');
+        const musicToggle = document.getElementById('musicToggle');
+        if (ambientAudio && musicToggle) {
+            musicToggle.addEventListener('click', () => {
+                if (ambientAudio.paused) {
+                    ambientAudio.play().then(() => musicToggle.classList.add('playing')).catch(() => {});
+                } else {
+                    ambientAudio.pause();
+                    musicToggle.classList.remove('playing');
+                }
+            });
+        }
+
+        // Звук при наведении на кнопки (мягкий тик)
+        let hoverAudioCtx = null;
+        const playHoverSound = () => {
+            if (!hoverAudioCtx) return;
+            try {
+                const osc = hoverAudioCtx.createOscillator();
+                const gain = hoverAudioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(hoverAudioCtx.destination);
+                osc.frequency.value = 600;
+                osc.type = 'sine';
+                gain.gain.setValueAtTime(0.06, hoverAudioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, hoverAudioCtx.currentTime + 0.08);
+                osc.start(hoverAudioCtx.currentTime);
+                osc.stop(hoverAudioCtx.currentTime + 0.08);
+            } catch (e) {}
+        };
+        const initHoverSound = () => {
+            if (hoverAudioCtx) return;
+            hoverAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        };
+        document.querySelectorAll('.btn, .nav__cta, .schedule__day, .price-card__btn, .faq__question, .music-toggle, .floating-cta').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                initHoverSound();
+                if (hoverAudioCtx) playHoverSound();
+            });
+            el.addEventListener('click', initHoverSound);
         });
     </script>
 </body>
