@@ -1,0 +1,144 @@
+/* ================================================
+   YOGAFEST 2026 — CSS для Tilda
+   Вставить в: Настройки сайта → Ещё → HTML-код → CSS
+   ================================================ */
+
+/* Подключение шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+/* Переменные */
+:root {
+    --sage: #8B9D83;
+    --sage-dark: #5C6B55;
+    --terracotta: #C67B5C;
+    --terracotta-light: #E8A98A;
+    --sand: #E6DDD1;
+    --cream: #FAF8F5;
+    --charcoal: #2C2C2C;
+    --gold: #BFA265;
+    
+    --font-sans: 'Space Grotesk', -apple-system, sans-serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    
+    --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Общие стили */
+body {
+    font-family: var(--font-sans);
+    background: var(--cream);
+    color: var(--charcoal);
+}
+
+/* Заголовки */
+h1, h2, h3, .t-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+}
+
+/* Кнопки */
+.t-btn,
+.t-submit {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 100px;
+    transition: all 0.4s var(--ease-smooth);
+}
+
+/* Основная кнопка */
+.t-btn_primary {
+    background: var(--terracotta);
+    color: white;
+}
+
+.t-btn_primary:hover {
+    background: var(--charcoal);
+}
+
+/* Вторичная кнопка */
+.t-btn_secondary {
+    background: transparent;
+    border: 1px solid var(--charcoal);
+    color: var(--charcoal);
+}
+
+.t-btn_secondary:hover {
+    background: var(--charcoal);
+    color: white;
+}
+
+/* Метки/Labels */
+.t-uptitle,
+.label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+}
+
+/* Цитаты */
+blockquote,
+.t-quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+}
+
+/* Ссылки */
+a {
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--terracotta);
+}
+
+/* Карточки */
+.t-card,
+.card {
+    border-radius: 24px;
+    overflow: hidden;
+    transition: transform 0.5s var(--ease-smooth), box-shadow 0.5s var(--ease-smooth);
+}
+
+.t-card:hover,
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.08);
+}
+
+/* Фон секций */
+.bg-cream { background: var(--cream); }
+.bg-sand { background: var(--sand); }
+.bg-sage { background: var(--sage-dark); color: white; }
+.bg-charcoal { background: var(--charcoal); color: white; }
+.bg-terracotta { background: var(--terracotta); color: white; }
+
+/* Текстовые цвета */
+.text-sage { color: var(--sage); }
+.text-terracotta { color: var(--terracotta); }
+.text-gold { color: var(--gold); }
+.text-charcoal { color: var(--charcoal); }
+
+/* Анимации появления */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Скрытие на мобильных */
+@media (max-width: 960px) {
+    .hide-mobile { display: none !important; }
+}
+
+@media (min-width: 961px) {
+    .hide-desktop { display: none !important; }
+}
