@@ -577,6 +577,41 @@
             color: var(--text-muted);
             line-height: 1.7;
         }
+        .program-highlights {
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--white-night) 0%, var(--bg-card) 100%);
+            border-radius: var(--radius);
+            border: 2px solid var(--white-night-mid);
+        }
+        .program-highlights__title {
+            font-family: var(--font-display);
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        .program-highlights__list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px 24px;
+        }
+        .program-highlights__list li {
+            font-size: 15px;
+            color: var(--text-muted);
+            padding-left: 24px;
+            position: relative;
+        }
+        .program-highlights__list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 8px;
+            height: 8px;
+            background: var(--sunset-gold);
+            border-radius: 50%;
+        }
 
         /* ===== COMMUNITY ===== */
         .community {
@@ -747,8 +782,17 @@
             margin-bottom: 4px;
         }
         .teacher__role {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .teachers__note {
+            text-align: center;
             font-size: 14px;
             color: var(--text-muted);
+            max-width: 720px;
+            margin: 40px auto 0;
+            line-height: 1.7;
         }
 
         /* ===== SCHEDULE ===== */
@@ -996,7 +1040,7 @@
             overflow: hidden;
             transition: max-height 0.4s var(--ease);
         }
-        .faq__item.active .faq__answer { max-height: 200px; }
+        .faq__item.active .faq__answer { max-height: 400px; }
         .faq__answer p {
             padding-bottom: 24px;
             font-size: 16px;
@@ -1131,6 +1175,46 @@
         .newsletter__btn:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-soft);
+        }
+
+        /* ===== GALLERY PAST ===== */
+        .gallery-past {
+            padding: 80px 0;
+            background: var(--bg);
+        }
+        .gallery-past__header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .gallery-past__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .gallery-past__item {
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+        .gallery-past__item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s var(--ease);
+        }
+        .gallery-past__item:hover img {
+            transform: scale(1.08);
+        }
+        .gallery-past__link {
+            text-align: center;
+        }
+        .gallery-past__link a {
+            font-weight: 600;
+            color: var(--forest-light);
+        }
+        .gallery-past__link a:hover {
+            color: var(--accent-warm);
         }
 
         /* ===== CTA ===== */
@@ -1320,6 +1404,9 @@
             .hero__content { padding: 0 24px; }
             .container { padding-right: max(24px, 120px); }
             .nav { padding: 16px 24px; }
+            .gallery-past__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .program-highlights { padding: 28px 20px; }
+            .program-highlights__list { grid-template-columns: 1fr; }
             .community__mosaic {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(4, 150px);
@@ -1453,8 +1540,9 @@
                 <div class="about__content reveal">
                     <span class="section-tag">О фестивале</span>
                     <h2 class="section-title">Больше чем йога — это семья</h2>
-                    <p class="about__text">Фестиваль проходит в центре <strong>Ладожский дом</strong> (Ladoga Home) — три базы в Приозерском районе Ленинградской области, в 120 км от Санкт-Петербурга. Домики в скандинавском стиле, лес и поляны, баня и Ладога рядом.</p>
-                    <p class="about__text">Мы проводим фестиваль летом, в период белых ночей — когда вечерняя заря сходится с утренней и сумерки длятся до рассвета. Йога, природа и люди — без суеты большого города.</p>
+                    <p class="about__text">Приглашаем вас на летний фестиваль йоги и медитации в волшебном пространстве ретритного центра <strong>Ладожский дом</strong> на берегу Ладоги. На фестивале вы окунётесь в мир йоги и медитации, попробуете цигун на берегу озера, насладитесь чистым воздухом и природой.</p>
+                    <p class="about__text">Мы подготовили насыщенную программу: мастер-классы от лучших инструкторов, медитации, йога-нидра, экстатик-денс, кундалини-йога, цигун и танцевальные классы, женские практики, банные мистерии и многое другое. Опытные мастера помогут раскрыть потенциал и найти путь к гармонии.</p>
+                    <p class="about__text">Мы проводим фестиваль летом, в период белых ночей — когда вечерняя заря сходится с утренней. Йога, природа и люди — без суеты большого города. На фестивале вы познакомитесь с единомышленниками, обменяетесь опытом и научитесь слышать себя и своё тело.</p>
                     <div class="about__highlight">
                         <p>«Место, где каждый может быть собой. Ладога, сосны и белые ночи»</p>
                     </div>
@@ -1546,6 +1634,19 @@
                     <p class="style-card__text">Приветствие солнца на рассвете у озера — особая энергия начала дня</p>
                 </div>
             </div>
+            <div class="program-highlights reveal">
+                <p class="program-highlights__title">В программе фестиваля</p>
+                <ul class="program-highlights__list">
+                    <li>Хатха-йога и пранаямы · ежедневные классы</li>
+                    <li>Кундалини-йога · медитации · ночь гонгов</li>
+                    <li>Мандала-йога · цигун · Сурья Намаскар на рассвете у Ладоги</li>
+                    <li>Ecstatic Dance · танцевальные мастер-классы</li>
+                    <li>Банные церемонии (STEAM SPACE) · авторский пар</li>
+                    <li>Лекторий · йогатерапия · арт-терапия · звуковая терапия (ханг)</li>
+                    <li>Массажные практики · кулинарный мастер-класс от шеф-повара Ладожского дома</li>
+                    <li>Катание на SUP · вечера у костра</li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -1620,37 +1721,54 @@
             <div class="teachers__grid">
                 <div class="teacher reveal">
                     <div class="teacher__img">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&q=80" alt="">
-                        <span class="teacher__badge">Хатха · Виньяса</span>
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&q=80" alt="Леонид Кутузов">
+                        <span class="teacher__badge">Хатха · Медитация</span>
                     </div>
-                    <h3 class="teacher__name">Анна Светлова</h3>
-                    <p class="teacher__role">15 лет практики · Основатель студии</p>
+                    <h3 class="teacher__name">Леонид Кутузов</h3>
+                    <p class="teacher__role">Президент Федерации йоги Санкт-Петербурга. Практикует с 1998 года, преподаёт с 2000. Семинары «Золотая коллекция медитаций», «Безопорная медитация».</p>
                 </div>
                 <div class="teacher reveal">
                     <div class="teacher__img">
-                        <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=500&q=80" alt="">
+                        <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=500&q=80" alt="Илья Баринов">
+                        <span class="teacher__badge">Цигун · Ecstatic Dance</span>
+                    </div>
+                    <h3 class="teacher__name">Илья Баринов</h3>
+                    <p class="teacher__role">Танцовщик и хореограф (Академия Вагановой). Тайцзи-цюань, цигун, хатха-йога. Реабилитолог, кинезиолог. Опыт преподавания более 10 лет.</p>
+                </div>
+                <div class="teacher reveal">
+                    <div class="teacher__img">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=80" alt="Татьяна Ищенко">
+                        <span class="teacher__badge">Универсальная йога · Мандала</span>
+                    </div>
+                    <h3 class="teacher__name">Татьяна Ищенко</h3>
+                    <p class="teacher__role">Преподаватель Универсальной йоги (RYS 500, Yogaflow). Организатор курсов в Непале, ассистент Андрея Лаппы. Тха-практика с пранаямами и бандхами, Мандала-йога.</p>
+                </div>
+                <div class="teacher reveal">
+                    <div class="teacher__img">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=80" alt="Сергей Дмитриев">
                         <span class="teacher__badge">Кундалини · Медитация</span>
                     </div>
-                    <h3 class="teacher__name">Дмитрий Волков</h3>
-                    <p class="teacher__role">12 лет практики · Автор курсов</p>
+                    <h3 class="teacher__name">Сергей Дмитриев (Seva Karan Singh)</h3>
+                    <p class="teacher__role">Сертифицированный преподаватель Кундалини Йоги (KRI). Преподаёт с 2014 года, ученик Харидживана Сингх Кхалса. Дыхание, корневые практики, медитации на каждый день.</p>
                 </div>
                 <div class="teacher reveal">
                     <div class="teacher__img">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=80" alt="">
-                        <span class="teacher__badge">Инь-йога · Йога-нидра</span>
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Илья Журавлев">
+                        <span class="teacher__badge">Хатха · Раджа йога</span>
                     </div>
-                    <h3 class="teacher__name">Екатерина Мирная</h3>
-                    <p class="teacher__role">10 лет практики · Психолог</p>
+                    <h3 class="teacher__name">Илья Журавлев</h3>
+                    <p class="teacher__role">Ведущий преподаватель школы «Йога108». Практикует с 1995, преподаёт с 1999. Обучался у мастеров Индии (Шивананда, Сатьянанда и др.). Практика «Сангам», трансовые погружения.</p>
                 </div>
                 <div class="teacher reveal">
                     <div class="teacher__img">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=80" alt="">
-                        <span class="teacher__badge">Аштанга · Пранаяма</span>
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=80" alt="Екатерина Коноваленко">
+                        <span class="teacher__badge">Ханг · Звуковая терапия</span>
                     </div>
-                    <h3 class="teacher__name">Сергей Белов</h3>
-                    <p class="teacher__role">18 лет практики · Путешественник</p>
+                    <h3 class="teacher__name">Екатерина Коноваленко</h3>
+                    <p class="teacher__role">Врач-остеопат, создатель пространства «Ханг. Состояние и мышление». Мастер-классы по хангу, «Мистический театр» — погружение в тета-волну через звук.</p>
                 </div>
             </div>
+            <p class="teachers__note reveal">Список мастеров дополняется. На фестивале также: банные церемонии (STEAM SPACE), Ecstatic Dance, ночь гонгов, кулинарные мастер-классы от шеф-повара Ладожского дома и другие ведущие.</p>
         </div>
     </section>
 
@@ -1672,11 +1790,11 @@
                     <div class="schedule__time">06:00</div>
                     <div class="schedule__info">
                         <h3>Сурья Намаскар на рассвете</h3>
-                        <p>Приветствие солнца у озера · Все уровни</p>
+                        <p>Приветствие солнца у Ладоги · Все уровни</p>
                     </div>
                     <div class="schedule__teacher">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80" alt="">
-                        <span>Анна С.</span>
+                        <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=100&q=80" alt="">
+                        <span>Илья Б.</span>
                     </div>
                 </div>
                 <div class="schedule__item">
@@ -1690,30 +1808,30 @@
                 <div class="schedule__item">
                     <div class="schedule__time">10:00</div>
                     <div class="schedule__info">
-                        <h3>Виньяса-флоу</h3>
-                        <p>Динамичная практика · Средний уровень</p>
+                        <h3>Виньяса / Хатха-йога</h3>
+                        <p>Практика «Сангам» или Мандала-йога · Илья Ж. / Татьяна И.</p>
                     </div>
                     <div class="schedule__teacher">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="">
-                        <span>Сергей Б.</span>
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="">
+                        <span>Илья Ж.</span>
                     </div>
                 </div>
                 <div class="schedule__item">
                     <div class="schedule__time">16:00</div>
                     <div class="schedule__info">
-                        <h3>Мастер-класс: Работа с дыханием</h3>
-                        <p>Пранаяма для начинающих</p>
+                        <h3>Мастер-класс: Пранаяма / Кундалини</h3>
+                        <p>Дыхание йогов · Сергей Д. (Seva Karan Singh)</p>
                     </div>
                     <div class="schedule__teacher">
-                        <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=100&q=80" alt="">
-                        <span>Дмитрий В.</span>
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="">
+                        <span>Сергей Д.</span>
                     </div>
                 </div>
                 <div class="schedule__item">
                     <div class="schedule__time">20:00</div>
                     <div class="schedule__info">
-                        <h3>Вечер у костра</h3>
-                        <p>Знакомство, чай, живая музыка</p>
+                        <h3>Вечер у костра / Ecstatic Dance</h3>
+                        <p>Знакомство, чай, живая музыка, ночь гонгов</p>
                     </div>
                     <div class="schedule__teacher"></div>
                 </div>
@@ -1791,7 +1909,15 @@
             </div>
             <div class="faq__item reveal">
                 <button class="faq__question">Можно ли приехать с ребёнком? <span class="faq__icon">+</span></button>
-                <div class="faq__answer"><p>Да! У нас есть детская программа для детей от 5 лет. Пока вы на практике, опытные педагоги занимаются с детьми йогой и творчеством.</p></div>
+                <div class="faq__answer"><p>Фестиваль 18+. Детского пространства не предусмотрено.</p></div>
+            </div>
+            <div class="faq__item reveal">
+                <button class="faq__question">Что входит в стоимость? <span class="faq__icon">+</span></button>
+                <div class="faq__answer"><p>Все практики и мастер-классы, трёхразовое вегетарианское питание от шеф-повара, проживание (по выбранному тарифу). Не включены: аренда SUP, индивидуальные занятия и массажи с мастерами, трансфер (≈ 2000 ₽ в обе стороны из Санкт-Петербурга).</p></div>
+            </div>
+            <div class="faq__item reveal">
+                <button class="faq__question">Как действует предоплата и возврат? <span class="faq__icon">+</span></button>
+                <div class="faq__answer"><p>Для бронирования нужна предоплата 5000 ₽. При отмене менее чем за месяц до начала фестиваля предоплата не возвращается.</p></div>
             </div>
             <div class="faq__item reveal">
                 <button class="faq__question">Какое питание на фестивале? <span class="faq__icon">+</span></button>
@@ -1801,7 +1927,7 @@
     </section>
 
     <!-- Location -->
-    <section class="location">
+    <section class="location" id="location">
         <div class="location__bg">
             <img src="https://images.unsplash.com/photo-1523913710015-0a4c60c840e3?w=1920&q=80" alt="">
             <div class="location__overlay"></div>
@@ -1809,7 +1935,8 @@
         <div class="location__content reveal">
             <span class="section-tag" style="color:var(--sunset-gold);">Место проведения</span>
             <h2 class="location__title">Ладожский дом</h2>
-            <p class="location__text">Центр Ladoga Home — Приозерский район, 120 км от Санкт-Петербурга. Ладога Хоум ЛЕС и Ладога Хоум ОЗЕРО: домики в скандинавском стиле, хвойный лес, баня, SUP и тишина. Практики проходят в зонах: <strong>Поляна у озера</strong> (утренние Сурья Намаскар), <strong>Зал Ладога</strong> (основные занятия), <strong>Веранда у костра</strong> (вечерние встречи). Идеально для йога-ретритов и летних фестивалей.</p>
+            <p class="location__text">В окружении соснового леса, недалеко от Ладоги, расположился ретритный центр <strong>Ладожский дом</strong>. Живописная природа, целебный воздух, пение птиц, потрясающая энергетика — всё способствует погружению в атмосферу практик йоги и медитаций.</p>
+            <p class="location__text">Домики в скандинавском стиле, глэмпинг, барнхауз, кемпинг на берегу Ладоги. Практики проходят в зонах: <strong>Поляна у озера</strong> (Сурья Намаскар на рассвете), <strong>Зал Ладога</strong> (основные занятия), <strong>Веранда у костра</strong> (вечерние встречи). Баня, SUP, вегетарианская кухня от шеф-повара центра.</p>
             <div class="location__features">
                 <div class="location__feature">
                     <div class="location__feature-icon">
@@ -1821,7 +1948,7 @@
                     <div class="location__feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     </div>
-                    <span>+7 (999) 123-45-67</span>
+                    <span>+7 921 411 72 70 (Татьяна)</span>
                 </div>
             </div>
         </div>
@@ -1845,6 +1972,38 @@
         <h2 class="cta__title">Присоединяйся к семье</h2>
         <p class="cta__text">Забронируй своё место уже сегодня — июнь на Ладоге ждёт.</p>
         <a href="#pricing" class="btn cta__btn">Забронировать место →</a>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-past" id="gallery">
+        <div class="container">
+            <div class="gallery-past__header reveal">
+                <span class="section-tag">Воспоминания</span>
+                <h2 class="section-title">Фото и видео с прошедших фестивалей</h2>
+                <p class="section-subtitle">Ладожский дом, берег Ладоги, белые ночи — как это было</p>
+            </div>
+            <div class="gallery-past__grid reveal">
+                <a href="https://yoga-fest.ru/page45735249.html" target="_blank" rel="noopener" class="gallery-past__item">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Йога на природе">
+                </a>
+                <a href="https://yoga-fest.ru/page45735249.html" target="_blank" rel="noopener" class="gallery-past__item">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80" alt="Практика на рассвете">
+                </a>
+                <a href="https://yoga-fest.ru/page45735249.html" target="_blank" rel="noopener" class="gallery-past__item">
+                    <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&q=80" alt="У костра">
+                </a>
+                <a href="https://yoga-fest.ru/page45735249.html" target="_blank" rel="noopener" class="gallery-past__item">
+                    <img src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&q=80" alt="Групповая практика">
+                </a>
+                <a href="https://yoga-fest.ru/page45735249.html" target="_blank" rel="noopener" class="gallery-past__item">
+                    <img src="https://images.unsplash.com/photo-1510894347713-fc3ed6fdf539?w=600&q=80" alt="Поющие чаши">
+                </a>
+                <a href="https://yoga-fest.ru/page45735249.html" target="_blank" rel="noopener" class="gallery-past__item">
+                    <img src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=600&q=80" alt="Мастер-класс">
+                </a>
+            </div>
+            <p class="gallery-past__link reveal"><a href="https://yoga-fest.ru/page45735249.html" target="_blank" rel="noopener">Больше фото и видео на yoga-fest.ru →</a></p>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -1874,17 +2033,17 @@
                     <h4>Информация</h4>
                     <ul>
                         <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#">Контакты</a></li>
-                        <li><a href="#">Как добраться</a></li>
-                        <li><a href="#">Галерея</a></li>
+                        <li><a href="#location">Место</a></li>
+                        <li><a href="#gallery">Галерея</a></li>
+                        <li><a href="https://yoga-fest.ru/page45735249.html" target="_blank" rel="noopener">Прошлые фестивали</a></li>
                     </ul>
                 </div>
                 <div class="footer__col">
                     <h4>Контакты</h4>
                     <ul>
-                        <li>+7 (999) 123-45-67</li>
+                        <li>+7 921 411 72 70 (Татьяна)</li>
                         <li>hello@yogafest.ru</li>
-                        <li>Telegram: @yogafest</li>
+                        <li>Telegram: <a href="https://t.me/Yoga2day" target="_blank" rel="noopener">@Yoga2day</a></li>
                     </ul>
                 </div>
             </div>
