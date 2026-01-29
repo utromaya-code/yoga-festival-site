@@ -4,7 +4,7 @@
 
 ## 🌐 Демо
 
-[Смотреть сайт](https://YOUR_USERNAME.github.io/yoga-festival-site/)
+[Смотреть сайт](https://utromaya-code.github.io/yoga-festival-site/) · [Репозиторий](https://github.com/utromaya-code/yoga-festival-site)
 
 ## ✨ Особенности
 
