@@ -904,7 +904,32 @@
         .pricing__header {
             text-align: center;
             max-width: 650px;
-            margin: 0 auto 60px;
+            margin: 0 auto 32px;
+        }
+        .pricing__earlybird {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            margin-bottom: 36px;
+            background: linear-gradient(135deg, #e53935 0%, #ff6f00 40%, var(--sunset-gold) 100%);
+            background-size: 200% 200%;
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border-radius: 100px;
+            box-shadow: 0 6px 24px rgba(229, 57, 53, 0.45), 0 0 0 2px rgba(255,255,255,0.3) inset;
+            animation: earlybirdPulse 2.2s ease-in-out infinite;
+        }
+        .pricing__earlybird-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+        @keyframes earlybirdPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 6px 24px rgba(229, 57, 53, 0.45), 0 0 0 2px rgba(255,255,255,0.3) inset; }
+            50% { transform: scale(1.02); box-shadow: 0 8px 32px rgba(229, 57, 53, 0.55), 0 0 0 2px rgba(255,255,255,0.4) inset; }
         }
         .pricing__grid {
             display: grid;
@@ -957,7 +982,18 @@
         .price-card__desc {
             font-size: 14px;
             opacity: 0.7;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
+        }
+        .price-card__old-price {
+            font-family: var(--font-display);
+            font-size: 22px;
+            text-decoration: line-through;
+            opacity: 0.75;
+            margin-bottom: 4px;
+        }
+        .price-card--popular .price-card__old-price {
+            opacity: 0.9;
+            color: rgba(255,255,255,0.9);
         }
         .price-card__price {
             font-family: var(--font-display);
@@ -1569,9 +1605,12 @@
             .schedule__item { grid-template-columns: 1fr; gap: 10px; padding: 16px 0; }
             .schedule__time { font-size: 14px; }
             .pricing { padding: 48px 0; }
-            .pricing__header { margin-bottom: 28px; }
+            .pricing__header { margin-bottom: 20px; }
+            .pricing__earlybird { font-size: 13px; padding: 12px 20px; margin-bottom: 28px; flex-wrap: wrap; justify-content: center; }
+            .pricing__earlybird-icon { width: 20px; height: 20px; }
             .pricing__grid { gap: 20px; }
             .price-card { padding: 24px 20px; }
+            .price-card__old-price { font-size: 18px; }
             .price-card__price { font-size: 32px; }
             .faq__inner { padding: 48px 0; }
             .faq__header { margin-bottom: 24px; }
@@ -2239,12 +2278,16 @@
             <div class="pricing__header reveal">
                 <span class="section-tag">Билеты</span>
                 <h2 class="section-title">Выбери свой формат участия</h2>
-                <p class="section-subtitle">Раннее бронирование до 1 мая — скидка 15%</p>
+            </div>
+            <div class="pricing__earlybird reveal" role="status" aria-live="polite">
+                <svg class="pricing__earlybird-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Early Bird — только для первых 20 участников
             </div>
             <div class="pricing__grid">
                 <div class="price-card reveal">
                     <h3 class="price-card__name">Один день</h3>
                     <p class="price-card__desc">Любой день фестиваля</p>
+                    <div class="price-card__old-price">8 000 ₽</div>
                     <div class="price-card__price">6 000<span> ₽</span></div>
                     <ul class="price-card__features">
                         <li>Все практики выбранного дня</li>
@@ -2255,7 +2298,8 @@
                 </div>
                 <div class="price-card reveal">
                     <h3 class="price-card__name">Палатка</h3>
-                    <p class="price-card__desc">Ранняя цена · 3 дня (3–5 июля)</p>
+                    <p class="price-card__desc">3 дня (3–5 июля)</p>
+                    <div class="price-card__old-price">20 000 ₽</div>
                     <div class="price-card__price">17 990<span> ₽</span></div>
                     <ul class="price-card__features">
                         <li>Проживание в своей палатке</li>
@@ -2269,6 +2313,7 @@
                     <div class="price-card__badge">Выбор сообщества</div>
                     <h3 class="price-card__name">Ладожский дом</h3>
                     <p class="price-card__desc">3–4 местные номера · 3 дня</p>
+                    <div class="price-card__old-price">25 000 ₽</div>
                     <div class="price-card__price">21 990<span> ₽</span></div>
                     <ul class="price-card__features">
                         <li>Проживание в Ладожском доме</li>
@@ -2280,7 +2325,8 @@
                 </div>
                 <div class="price-card reveal">
                     <h3 class="price-card__name">Глэмпинг</h3>
-                    <p class="price-card__desc">Ранняя цена · двухместный · 3 дня</p>
+                    <p class="price-card__desc">Двухместный · 3 дня</p>
+                    <div class="price-card__old-price">30 000 ₽</div>
                     <div class="price-card__price">25 990<span> ₽</span></div>
                     <ul class="price-card__features">
                         <li>Двухместный глэмпинг</li>
@@ -2293,6 +2339,7 @@
                 <div class="price-card reveal">
                     <h3 class="price-card__name">Барнхаус</h3>
                     <p class="price-card__desc">Двухместный номер · 3 дня</p>
+                    <div class="price-card__old-price">35 000 ₽</div>
                     <div class="price-card__price">29 900<span> ₽</span></div>
                     <ul class="price-card__features">
                         <li>Двухместный номер в барнхаузе</li>
