@@ -818,6 +818,13 @@
         .schedule__header {
             margin-bottom: 50px;
         }
+        .schedule__afterparty-note {
+            margin-top: 16px;
+            font-size: 15px;
+            color: var(--text-muted);
+            max-width: 560px;
+        }
+        .schedule__afterparty-note strong { color: var(--forest-light); }
         .schedule__days {
             display: flex;
             gap: 12px;
@@ -980,6 +987,10 @@
         }
         .price-card--popular .price-card__features li::before {
             color: var(--sunset-gold);
+        }
+        .price-card__addon {
+            font-size: 13px;
+            color: var(--text-muted);
         }
         .price-card__btn {
             width: 100%;
@@ -1567,7 +1578,7 @@
             </div>
             <h1 class="hero__title">Летний <em>Йога</em> Фестиваль</h1>
             <p class="hero__slogan">Твой путь к себе · <span>Ладога</span> · Июль</p>
-            <p class="hero__text">Три дня в самом сердце лета — в белые ночи на берегу Ладоги. Ладожский дом, хвойный лес и сообщество единомышленников. <strong>6 июля — день афтерпати:</strong> можно остаться и потусить.</p>
+            <p class="hero__text">Три дня в самом сердце лета — в белые ночи на берегу Ладоги. Ладожский дом, хвойный лес и сообщество единомышленников.</p>
             <div class="hero__actions">
                 <a href="#pricing" class="btn btn-primary">Забронировать место</a>
                 <a href="#about" class="btn btn-outline" style="background:rgba(255,255,255,0.15);border:none;color:white;">Узнать больше</a>
@@ -2059,12 +2070,14 @@
             <div class="schedule__header reveal">
                 <span class="section-tag">Программа</span>
                 <h2 class="section-title">Расписание фестиваля</h2>
+                <p class="section-subtitle">Фестиваль проходит <strong>3–5 июля 2026</strong>. 6 июля можно просто отдохнуть, побыть на природе с друзьями, с преподавателями и мастерами фестиваля, отдохнуть от практик и интегрировать полученный опыт.</p>
+                <p class="schedule__afterparty-note reveal">Опция 6 июля при бронировании: <strong>+3 000 ₽</strong> (палатка), <strong>+5 000 ₽</strong> (Ладожский дом), <strong>+6 000 ₽</strong> (глэмпинг и барнхаус).</p>
             </div>
             <div class="schedule__days reveal">
                 <button class="schedule__day active">День 1 · Пятница 3 июля</button>
                 <button class="schedule__day">День 2 · Суббота 4 июля</button>
                 <button class="schedule__day">День 3 · Воскресенье 5 июля</button>
-                <button class="schedule__day">6 июля · Афтерпати</button>
+                <button class="schedule__day">6 июля · Отдых</button>
             </div>
             <div class="schedule__list reveal">
                 <div class="schedule__item">
@@ -2148,6 +2161,7 @@
                         <li>Проживание в своей палатке</li>
                         <li>Питание 3 раза в день</li>
                         <li>Все практики и мастер-классы</li>
+                        <li class="price-card__addon">Опция 6 июля: +3 000 ₽</li>
                     </ul>
                     <button class="price-card__btn">Забронировать</button>
                 </div>
@@ -2160,6 +2174,7 @@
                         <li>Проживание в Ладожском доме</li>
                         <li>Питание 3 раза в день</li>
                         <li>Все практики и мастер-классы</li>
+                        <li class="price-card__addon">Опция 6 июля: +5 000 ₽</li>
                     </ul>
                     <button class="price-card__btn">Забронировать</button>
                 </div>
@@ -2171,6 +2186,7 @@
                         <li>Двухместный глэмпинг</li>
                         <li>Питание 3 раза в день</li>
                         <li>Все практики и мастер-классы</li>
+                        <li class="price-card__addon">Опция 6 июля: +6 000 ₽</li>
                     </ul>
                     <button class="price-card__btn">Забронировать</button>
                 </div>
@@ -2182,6 +2198,7 @@
                         <li>Двухместный номер в барнхаузе</li>
                         <li>Питание 3 раза в день</li>
                         <li>Все практики и мастер-классы</li>
+                        <li class="price-card__addon">Опция 6 июля: +6 000 ₽</li>
                     </ul>
                     <button class="price-card__btn">Забронировать</button>
                 </div>
@@ -2316,7 +2333,7 @@
             <div class="footer__top">
                 <div>
                     <div class="footer__logo">YogaFest</div>
-                    <p class="footer__tagline">Йога-фестиваль на Ладоге в белые ночи. Ладожский дом, 3–5 июля 2026 (+ 6 июля — афтерпати). Санкт-Петербург рядом.</p>
+                    <p class="footer__tagline">Йога-фестиваль на Ладоге в белые ночи. Ладожский дом, 3–5 июля 2026. Санкт-Петербург рядом.</p>
                     <div class="footer__social">
                         <a href="#">TG</a>
                         <a href="#">IG</a>
