@@ -1401,28 +1401,108 @@
             .footer__top { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
+            /* Короче hero на мобильных */
+            .hero { min-height: 75vh; padding: 60px 0 40px; }
             .hero__content { padding: 0 24px; }
-            .container { padding-right: max(24px, 120px); }
-            .nav { padding: 16px 24px; }
-            .gallery-past__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .program-highlights { padding: 28px 20px; }
-            .program-highlights__list { grid-template-columns: 1fr; }
+            .hero__title { font-size: clamp(32px, 9vw, 48px); margin-bottom: 16px; }
+            .hero__slogan { margin-bottom: 16px; font-size: 13px; }
+            .hero__text { margin-bottom: 20px; font-size: 16px; }
+            .hero__scroll { bottom: 20px; }
+            /* Меньше вертикальных отступов секций — страница не такая длинная */
+            .about { padding: 48px 0; }
+            .about__grid { gap: 32px; }
+            .styles { padding: 48px 0; }
+            .styles__header { margin-bottom: 32px; }
+            .program-highlights { padding: 20px 16px; margin: 0 16px; }
+            .program-highlights__list { grid-template-columns: 1fr; gap: 16px; }
+            .stats { padding: 40px 0; }
+            .stats__grid { gap: 24px; }
+            .trust { padding: 28px 0; }
+            .trust__inner { padding: 0 16px; }
+            .community { padding: 48px 0; }
+            .community__header { margin-bottom: 28px; }
             .community__mosaic {
                 grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(4, 150px);
+                grid-template-rows: repeat(4, 120px);
+                gap: 8px;
             }
             .community__img:nth-child(n) { grid-column: span 1; }
             .community__img:nth-child(1),
             .community__img:nth-child(4),
             .community__img:nth-child(5),
             .community__img:nth-child(8) { grid-column: span 2; }
-            .schedule__item { grid-template-columns: 1fr; gap: 12px; }
-            .location__content { padding: 40px 24px; }
+            .teachers { padding: 48px 0; }
+            .teachers__header { margin-bottom: 28px; }
+            .teachers__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .teacher__img { margin-bottom: 10px; }
+            .teacher__img img { aspect-ratio: 1; border-radius: 80px 80px var(--radius) var(--radius); }
+            .teacher__name { font-size: 15px; margin-bottom: 2px; }
+            .teacher__role {
+                font-size: 11px;
+                line-height: 1.45;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .teachers__note { margin-top: 24px; font-size: 13px; }
+            .schedule { padding: 48px 0; }
+            .schedule__header { margin-bottom: 24px; }
+            .schedule__days { margin-bottom: 24px; gap: 8px; }
+            .schedule__day { padding: 10px 18px; font-size: 13px; }
+            .schedule__item { grid-template-columns: 1fr; gap: 10px; padding: 16px 0; }
+            .schedule__time { font-size: 14px; }
+            .pricing { padding: 48px 0; }
+            .pricing__header { margin-bottom: 28px; }
+            .pricing__grid { gap: 20px; }
+            .price-card { padding: 24px 20px; }
+            .price-card__price { font-size: 32px; }
+            .faq__inner { padding: 48px 0; }
+            .faq__header { margin-bottom: 24px; }
+            .faq__item button { padding: 16px 20px; font-size: 15px; }
+            .location__content { padding: 32px 24px; }
             .location__overlay { background: rgba(61, 61, 61, 0.85); }
-            .footer__top { grid-template-columns: 1fr; gap: 40px; }
+            .newsletter { padding: 48px 24px; }
+            .cta { padding: 48px 24px; }
+            .cta__title { font-size: 28px; }
+            .gallery-past { padding: 48px 0; }
+            .gallery-past__header { margin-bottom: 24px; }
+            .gallery-past__grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .footer { padding: 48px 0 32px; }
+            .footer__top { grid-template-columns: 1fr; gap: 32px; }
             .footer__bottom { flex-direction: column; gap: 12px; text-align: center; }
-            .floating-cta { bottom: 20px; right: 16px; padding: 12px 18px; font-size: 13px; }
+            .section-tag { margin-bottom: 10px; font-size: 11px; }
+            .section-title { font-size: clamp(26px, 6vw, 36px); margin-bottom: 12px; }
+            .section-subtitle { font-size: 15px; }
+            .container { padding: 0 20px; padding-right: max(20px, 100px); }
+            .nav { padding: 12px 20px; }
+            .floating-cta { bottom: 16px; right: 12px; padding: 10px 16px; font-size: 12px; }
+            /* Быстрая навигация по секциям — только на мобильных */
+            .mobile-jump {
+                display: flex;
+                gap: 8px;
+                padding: 10px 20px 12px;
+                background: var(--bg);
+                border-bottom: 1px solid rgba(45, 74, 62, 0.1);
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .mobile-jump a {
+                flex-shrink: 0;
+                padding: 8px 14px;
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--text-muted);
+                background: white;
+                border-radius: 100px;
+                border: 1px solid var(--white-night-mid);
+                transition: color 0.2s, background 0.2s, border-color 0.2s;
+            }
+            .mobile-jump a:hover, .mobile-jump a:focus { color: var(--forest-light); background: var(--white-night); border-color: var(--forest-light); }
+            .mobile-jump::-webkit-scrollbar { display: none; }
         }
+        .mobile-jump { display: none; }
         @media (max-width: 500px) {
             .stats__grid { grid-template-columns: 1fr; gap: 30px; }
             .stat__number { font-size: 48px; }
@@ -1482,6 +1562,15 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
         </div>
     </section>
+
+    <!-- Мобильная быстрая навигация по секциям (только на узких экранах) -->
+    <nav class="mobile-jump" id="mobileJump" aria-label="Переход к секциям">
+        <a href="#about">О нас</a>
+        <a href="#styles">Практики</a>
+        <a href="#teachers">Учителя</a>
+        <a href="#schedule">Расписание</a>
+        <a href="#pricing">Билеты</a>
+    </nav>
 
     <!-- Trust Bar -->
     <section class="trust">
