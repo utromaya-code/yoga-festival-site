@@ -1243,6 +1243,96 @@
             color: var(--accent-warm);
         }
 
+        /* ===== О НАС ПИШУТ (пресса / блог) ===== */
+        .press {
+            padding: 80px 0;
+            background: white;
+        }
+        .press__header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .press__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .press__card {
+            background: var(--white-night);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            transition: all 0.4s var(--ease);
+            border: 1px solid transparent;
+        }
+        .press__card:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: var(--forest-light);
+            transform: translateY(-4px);
+        }
+        .press__card h3 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.35;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        .press__card p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .press__card a {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--forest-light);
+        }
+        .press__card a:hover {
+            color: var(--accent-warm);
+        }
+
+        /* ===== ПАРТНЕРЫ ФЕСТИВАЛЯ ===== */
+        .partners {
+            padding: 80px 0;
+            background: linear-gradient(180deg, var(--white-night) 0%, var(--bg) 100%);
+        }
+        .partners__inner {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .partners__tag {
+            margin-bottom: 16px;
+        }
+        .partners__title {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        .partners__text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+        .partners__text strong {
+            color: var(--forest-light);
+        }
+        .partners__btns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+        .partners__btns .btn {
+            min-width: 180px;
+        }
+
         /* ===== CTA ===== */
         .cta {
             position: relative;
@@ -1494,6 +1584,13 @@
             .gallery-past { padding: 48px 0; }
             .gallery-past__header { margin-bottom: 24px; }
             .gallery-past__grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .press { padding: 48px 0; }
+            .press__header { margin-bottom: 28px; }
+            .press__grid { gap: 20px; }
+            .partners { padding: 48px 0; }
+            .partners__text { font-size: 16px; margin-bottom: 24px; }
+            .partners__btns { flex-direction: column; }
+            .partners__btns .btn { width: 100%; justify-content: center; }
             .footer { padding: 48px 0 90px; }
             .footer__top { grid-template-columns: 1fr; gap: 32px; }
             .footer__bottom { flex-direction: column; gap: 12px; text-align: center; }
@@ -1597,6 +1694,9 @@
         <a href="#teachers">Учителя</a>
         <a href="#schedule">Расписание</a>
         <a href="#pricing">Билеты</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#press">О нас пишут</a>
+        <a href="#partners">Партнёры</a>
     </nav>
 
     <!-- Trust Bar -->
@@ -2327,8 +2427,46 @@
         </div>
     </section>
 
+    <!-- О нас пишут (пресса / блог) -->
+    <section class="press" id="press">
+        <div class="container">
+            <div class="press__header reveal">
+                <span class="section-tag">Блог</span>
+                <h2 class="section-title">О нас пишут</h2>
+                <p class="section-subtitle">Статьи и отзывы о фестивалях йоги на Ладоге и в Ленинградской области</p>
+            </div>
+            <div class="press__grid">
+                <article class="press__card reveal">
+                    <h3>Дыхание лета — тишина озера. Под Санкт-Петербургом прошёл фестиваль йоги Yogafest 2025</h3>
+                    <p>После многолетней паузы возобновил свою работу один из первых российских ретрит-центров. Восхитительная масштабная локация на берегу Люговского озера приняла большой традиционный фестиваль йоги «Дыхание лета — тишина озера».</p>
+                    <a href="https://yoga-fest.ru" target="_blank" rel="noopener">Читать далее →</a>
+                </article>
+                <article class="press__card reveal">
+                    <h3>Фестиваль йоги: перенастройка приёмника</h3>
+                    <p>Приехать на йога-фестиваль в Ленинградскую область — это не просто сменить локацию: настраиваем приёмник сознания на определённую частоту, отключаем городской шум и позволяем себе резонанс с другим ритмом.</p>
+                    <a href="https://yoga-fest.ru" target="_blank" rel="noopener">Читать далее →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Партнёры фестиваля -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <div class="partners__inner reveal">
+                <span class="section-tag partners__tag">Сотрудничество</span>
+                <h2 class="partners__title">Стать партнёром фестиваля</h2>
+                <p class="partners__text">Присоединяйтесь и <strong>получите новый опыт в йоге</strong>, медитации и качественном отдыхе на нашем йога-фестивале! Партнёрство — это возможность быть ближе к сообществу, представить свой продукт или услугу участникам и поддержать дух фестиваля на Ладоге.</p>
+                <div class="partners__btns">
+                    <a href="#pricing" class="btn btn-primary">Принять участие</a>
+                    <a href="#footer" class="btn btn-outline">Задать вопрос</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="footer">
         <div class="container">
             <div class="footer__top">
                 <div>
@@ -2356,6 +2494,8 @@
                         <li><a href="#faq">FAQ</a></li>
                         <li><a href="#location">Место</a></li>
                         <li><a href="#gallery">Галерея</a></li>
+                        <li><a href="#press">О нас пишут</a></li>
+                        <li><a href="#partners">Партнёры фестиваля</a></li>
                         <li><a href="https://yoga-fest.ru/page45735249.html" target="_blank" rel="noopener">Прошлые фестивали</a></li>
                     </ul>
                 </div>
