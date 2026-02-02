@@ -290,14 +290,21 @@
         .hero__badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
+            gap: 10px;
+            padding: 12px 22px;
             background: rgba(255,255,255,0.2);
             backdrop-filter: blur(10px);
             border-radius: 100px;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
             margin-bottom: 24px;
+        }
+        .hero__badge-date {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: white;
         }
         .hero__badge-dot {
             width: 8px;
@@ -1547,11 +1554,12 @@
         <div class="hero__content">
             <div class="hero__badge">
                 <span class="hero__badge-dot"></span>
-                20–23 июня 2026 · Белые ночи · Ладога
+                <span class="hero__badge-date">3–5 июля 2026</span>
+                <span>· Белые ночи · Ладога</span>
             </div>
             <h1 class="hero__title">Летний <em>Йога</em> Фестиваль</h1>
-            <p class="hero__slogan">Твой путь к себе · <span>Ладога</span> · Июнь</p>
-            <p class="hero__text">Четыре дня в самом сердце лета — в белые ночи на берегу Ладоги. Ладожский дом, хвойный лес и сообщество единомышленников.</p>
+            <p class="hero__slogan">Твой путь к себе · <span>Ладога</span> · Июль</p>
+            <p class="hero__text">Три дня в самом сердце лета — в белые ночи на берегу Ладоги. Ладожский дом, хвойный лес и сообщество единомышленников. <strong>6 июля — день афтерпати:</strong> можно остаться и потусить.</p>
             <div class="hero__actions">
                 <a href="#pricing" class="btn btn-primary">Забронировать место</a>
                 <a href="#about" class="btn btn-outline" style="background:rgba(255,255,255,0.15);border:none;color:white;">Узнать больше</a>
@@ -2045,10 +2053,10 @@
                 <h2 class="section-title">Расписание фестиваля</h2>
             </div>
             <div class="schedule__days reveal">
-                <button class="schedule__day active">День 1 · Среда</button>
-                <button class="schedule__day">День 2 · Четверг</button>
-                <button class="schedule__day">День 3 · Пятница</button>
-                <button class="schedule__day">День 4 · Суббота</button>
+                <button class="schedule__day active">День 1 · Пятница 3 июля</button>
+                <button class="schedule__day">День 2 · Суббота 4 июля</button>
+                <button class="schedule__day">День 3 · Воскресенье 5 июля</button>
+                <button class="schedule__day">6 июля · Афтерпати</button>
             </div>
             <div class="schedule__list reveal">
                 <div class="schedule__item">
@@ -2127,7 +2135,7 @@
                 <div class="price-card price-card--popular reveal">
                     <div class="price-card__badge">Выбор сообщества</div>
                     <h3 class="price-card__name">Полный</h3>
-                    <p class="price-card__desc">Все 4 дня фестиваля</p>
+                    <p class="price-card__desc">3 дня фестиваля (3–5 июля)</p>
                     <div class="price-card__price">18 000<span> ₽</span></div>
                     <ul class="price-card__features">
                         <li>Все практики и мастер-классы</li>
@@ -2235,7 +2243,7 @@
     <section class="cta">
         <p class="cta__urgency">Осталось 50 мест</p>
         <h2 class="cta__title">Присоединяйся к семье</h2>
-        <p class="cta__text">Забронируй своё место уже сегодня — июнь на Ладоге ждёт.</p>
+        <p class="cta__text">Забронируй своё место уже сегодня — 3–5 июля на Ладоге ждёт.</p>
         <a href="#pricing" class="btn cta__btn">Забронировать место →</a>
     </section>
 
@@ -2280,7 +2288,7 @@
             <div class="footer__top">
                 <div>
                     <div class="footer__logo">YogaFest</div>
-                    <p class="footer__tagline">Йога-фестиваль на Ладоге в белые ночи. Ладожский дом, июнь, Санкт-Петербург рядом.</p>
+                    <p class="footer__tagline">Йога-фестиваль на Ладоге в белые ночи. Ладожский дом, 3–5 июля 2026 (+ 6 июля — афтерпати). Санкт-Петербург рядом.</p>
                     <div class="footer__social">
                         <a href="#">TG</a>
                         <a href="#">IG</a>
